@@ -46,6 +46,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`,
+        languages: [`en`, `hr`, `de`],
+        defaultLanguage: `hr`,
+        redirect: true,
+        redirectComponent: require.resolve(`./src/components/redirect.js`),
+      },
+    },
+    {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
@@ -54,6 +64,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `intl`,
+        path: `${__dirname}/src/intl`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -1,6 +1,7 @@
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-intl"
 import PropTypes from "prop-types"
 import React from "react"
+import Language from "./language"
 
 const Header = ({ siteTitle }) => (
   <header
@@ -16,7 +17,7 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h1 style={{ margin: 0, display: "inline-block" }}>
         <Link
           to="/"
           style={{
@@ -27,6 +28,13 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <div
+        style={{
+          float: `right`,
+        }}
+      >
+        <Language />
+      </div>
     </div>
   </header>
 )

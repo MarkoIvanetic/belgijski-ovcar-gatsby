@@ -1,29 +1,35 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import { FormattedMessage, Link, useIntl } from "gatsby-plugin-intl"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-// import "./index.css"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <div className="home">
-      <h1>Hello There</h1>
-      <div>
-        <div
-          style={{
-            maxWidth: `300px`,
-            margin: "0 auto 1.45rem",
-          }}
-        >
-          <Image />
-        </div>
+const IndexPage = () => {
+  const intl = useIntl()
+  return (
+    <Layout>
+      <SEO
+        lang={intl.locale}
+        title={intl.formatMessage({ id: "title" })}
+        keywords={[`gatsby`, `application`, `react`]}
+      />
+      <h1>
+        <FormattedMessage id="nav_2" />
+      </h1>
+      <p>
+        <FormattedMessage id="nav_2" />
+      </p>
+      <p>
+        <FormattedMessage id="nav_2" />
+      </p>
+      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+        <Image />
       </div>
-      <Link to="/blog/">View all posts</Link>
-    </div>
-  </Layout>
-)
+      <Link to="/blog/">
+        <FormattedMessage id="nav_2" />
+      </Link>
+    </Layout>
+  )
+}
 
 export default IndexPage
