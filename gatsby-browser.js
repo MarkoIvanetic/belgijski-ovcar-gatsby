@@ -6,6 +6,8 @@
 
 // You can delete this file if you're not using it
 
+import "./src/styles/global.css"
+
 // exports.onClientEntry = () => {
 //   if (window.location.pathname === "/") {
 //     window.location.pathname = localStorage.getItem("preferredLang") || `/hr`

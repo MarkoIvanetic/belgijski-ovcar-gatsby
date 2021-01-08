@@ -10,14 +10,14 @@ const IndexPage = () => {
     <Layout>
       <SEO
         lang={intl.locale}
-        title={intl.formatMessage({ id: "title" })}
+        title={intl.formatMessage({ id: "metadata_title" })}
         keywords={[`gatsby`, `application`, `react`]}
       />
       <h1>
-        <FormattedMessage id="nav_2" />
+        <FormattedMessage id="nav_0" />
       </h1>
       <p>
-        <FormattedMessage id="nav_2" />
+        <FormattedMessage id="nav_1" />
       </p>
       <p>
         <FormattedMessage id="nav_2" />
