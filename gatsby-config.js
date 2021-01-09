@@ -49,7 +49,7 @@ module.exports = {
       resolve: `gatsby-plugin-intl`,
       options: {
         path: `${__dirname}/src/intl`,
-        languages: [`en`, `hr`, `de`],
+        languages: [`hr`, `en`, `de`],
         defaultLanguage: `hr`,
         redirect: true,
         redirectComponent: require.resolve(`./src/components/redirect.js`),
@@ -90,7 +90,6 @@ module.exports = {
         background_color: `#6b37bf`,
         theme_color: `#6b37bf`,
         display: `standalone`,
-        icon: `src/images/favicon.png`,
         icon: `${__dirname}/static/site/favicon.png`,
       },
     },
