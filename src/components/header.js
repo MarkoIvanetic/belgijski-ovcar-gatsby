@@ -4,6 +4,7 @@ import { Link } from "gatsby-plugin-intl"
 import { StyledHeader } from "./style/Header.style"
 
 import Language from "./language"
+import { Navigation } from "./navigation"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
@@ -25,6 +26,7 @@ const Header = ({ siteTitle }) => (
         }}
       >
         <Language />
+        <Navigation />
       </div>
     </div>
   </StyledHeader>
