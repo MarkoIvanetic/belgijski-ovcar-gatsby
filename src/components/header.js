@@ -1,14 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby-plugin-intl"
-import { Header as StyledHeader } from "./style/Header.style"
+import { StyledHeader } from "./style/Header.style"
 
 import Language from "./language"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
     <div>
-      <h1 style={{ margin: 0, display: "inline-block" }}>
+      <h1>
         <Link
           to="/"
           style={{
@@ -35,7 +35,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: "",
 }
 
 export default Header

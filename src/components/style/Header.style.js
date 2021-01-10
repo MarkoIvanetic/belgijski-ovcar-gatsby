@@ -14,7 +14,12 @@ import styled from "@emotion/styled"
 // }
 
 const StyledHeader = styled.header`
-  background: "rebeccapurple";
-  margin-bottom: "1.45rem";
+  background: rebeccapurple;
+  margin-bottom: 1.45rem;
+  & > div {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 1.45rem 1.0875rem;
+  }
 `
 export { StyledHeader }
