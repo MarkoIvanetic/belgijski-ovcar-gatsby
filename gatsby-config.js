@@ -1,26 +1,22 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
-  accessToken:
-    process.env.CONTENTFUL_ACCESS_TOKEN ||
-    process.env.CONTENTFUL_DELIVERY_TOKEN,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || process.env.CONTENTFUL_DELIVERY_TOKEN,
   downloadLocal: true,
-}
+};
 
 if (process.env.CONTENTFUL_HOST) {
-  contentfulConfig.host = process.env.CONTENTFUL_HOST
-  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+  contentfulConfig.host = process.env.CONTENTFUL_HOST;
+  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
 }
 
-const { spaceId, accessToken } = contentfulConfig
+const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
-  throw new Error(
-    "Contentful spaceId and the access token need to be provided."
-  )
+  throw new Error('Contentful spaceId and the access token need to be provided.');
 }
 
 module.exports = {
@@ -32,6 +28,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -56,7 +53,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
     {
@@ -97,4 +94,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

@@ -1,7 +1,28 @@
-/* hr {
-  margin: 15px 0px;
+:root {
+  --dark: #373740;
+  --gray: #ccc;
+  --blue: #00b;
 }
 
-a {
-  text-shadow: none;
-} */
+h1,
+h2 {
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h1 {
+  color: var(--dark);
+  font-size: 4rem;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h2 {
+  color: var(--gray);
+  font-size: 1.5rem;
+  padding-left: 4px;
+}
+
+body {
+  margin: 0;
+}

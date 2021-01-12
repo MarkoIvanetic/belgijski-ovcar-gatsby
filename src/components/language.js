@@ -1,8 +1,9 @@
 import React from 'react';
 import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
+import styles from './style/language.module.scss';
 
 const Language = () => (
-  <div>
+  <div className={styles.root}>
     <IntlContextConsumer>
       {({ languages, language: currentLocale }) =>
         languages.map((language) => {

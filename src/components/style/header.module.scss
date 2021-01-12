@@ -1,0 +1,22 @@
+.root {
+  background: rebeccapurple;
+  max-width: 1120px;
+  margin-bottom: 1.45rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  color: var(--dark);
+  margin-bottom: 10px;
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
+}
+
+.logo {
+  // margin-right: 20px;
+}
