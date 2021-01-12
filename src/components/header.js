@@ -1,43 +1,35 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby-plugin-intl"
-import { StyledHeader } from "./style/Header.style"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby-plugin-intl';
+import { StyledHeader } from './style/Header.style';
 
-import Language from "./language"
-import { Navigation } from "./navigation"
+import Language from './language';
+import { Navigation } from './navigation';
+import Img from 'gatsby-image';
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
     <div>
       <h1>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+        <Link to="/">
+          <img source="https://www.belgijskiovcar.com/images/dogbanner.png?1" alt="banner" />
           {siteTitle}
         </Link>
       </h1>
-      <div
-        style={{
-          float: `right`,
-        }}
-      >
+      <div>
         <Language />
         <Navigation />
       </div>
     </div>
   </StyledHeader>
-)
+);
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Header.defaultProps = {
-  siteTitle: "",
-}
+  siteTitle: '',
+};
 
-export default Header
+export default Header;

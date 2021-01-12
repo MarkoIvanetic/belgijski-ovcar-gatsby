@@ -1,11 +1,11 @@
-import React from "react"
-import { Link } from "gatsby-plugin-intl"
+import React from 'react';
+import { Link } from 'gatsby-plugin-intl';
 
-const ListLink = props => (
+const ListLink = (props) => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>{props.children}</Link>
   </li>
-)
+);
 
 export const Navigation = () => (
   <div style={{ padding: `0 1rem` }}>
@@ -17,4 +17,4 @@ export const Navigation = () => (
       <ListLink to="/contact/">Contact</ListLink>
     </ul>
   </div>
-)
+);
