@@ -1,5 +1,20 @@
 .root {
   position: absolute;
-  top: 0;
+  top: 1rem;
   right: 0;
+
+  a {
+    color: var(--gray);
+    border-left: 1px solid var(--gray);
+    padding: 2px 10px;
+    cursor: pointer;
+
+    &:first-of-type {
+      border-left: none;
+    }
+  }
+}
+
+.active {
+  text-decoration: underline;
 }

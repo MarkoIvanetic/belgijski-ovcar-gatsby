@@ -7,14 +7,18 @@
   flex-direction: column;
 }
 
-.title {
+.header {
   display: flex;
   color: var(--dark);
-  margin-bottom: 10px;
   a:hover,
   a:active {
     text-decoration: none;
   }
+}
+
+.title {
+  display: flex;
+  align-items: center;
 }
 
 .logo {

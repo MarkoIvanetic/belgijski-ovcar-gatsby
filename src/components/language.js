@@ -7,19 +7,13 @@ const Language = () => (
     <IntlContextConsumer>
       {({ languages, language: currentLocale }) =>
         languages.map((language) => {
-          console.log(language);
           return (
             <a
               key={language}
               rel="alternate"
+              className={currentLocale === language ? styles.active : ''}
               hrefLang={language}
-              onClick={() => changeLocale(language)}
-              style={{
-                color: currentLocale === language ? `yellow` : `white`,
-                margin: 10,
-                textDecoration: `underline`,
-                cursor: `pointer`,
-              }}>
+              onClick={() => changeLocale(language)}>
               {language.toUpperCase()}
             </a>
           );
