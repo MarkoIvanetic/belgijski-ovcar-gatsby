@@ -37,3 +37,8 @@ Once you've setup a static site that pulls in your content during the build proc
 - must be configured for CD via a linked Git repo hosted with a Git provider
 
 TBA
+
+## TODO
+
+- change link color
+- source contact data from contentful
