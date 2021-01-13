@@ -12,6 +12,7 @@ import { injectIntl } from 'gatsby-plugin-intl';
 
 import styles from './style/layout.module.scss';
 import Header from './header';
+import Footer from './footer';
 
 const Layout = ({ children, intl }) => {
   const data = useStaticQuery(graphql`
@@ -28,6 +29,7 @@ const Layout = ({ children, intl }) => {
     <div className={styles.root}>
       <Header siteTitle={intl.formatMessage({ id: 'metadata_title' })} />
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };

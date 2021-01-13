@@ -27,3 +27,7 @@ h2 {
 body {
   margin: 0;
 }
+
+main {
+  min-height: 50vh;
+}

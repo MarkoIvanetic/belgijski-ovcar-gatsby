@@ -24,6 +24,7 @@ const typography = new Typography({
     'a:hover': {
       textDecoration: 'underline',
     },
+    p: { marginBottom: 0 },
     img: { marginBottom: 0 },
   }),
 });

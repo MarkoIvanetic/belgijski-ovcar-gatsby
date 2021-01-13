@@ -1,0 +1,23 @@
+.root {
+  // position: absolute;
+  // bottom: 0;
+  // right: 0;
+  display: flex;
+  // letter-spacing: 0.5px;
+
+  & > div {
+    flex: 1;
+  }
+  & > div:first-of-type {
+    text-align: left;
+  }
+  & > div:last-of-type {
+    text-align: right;
+  }
+
+  strong {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 5px;
+  }
+}

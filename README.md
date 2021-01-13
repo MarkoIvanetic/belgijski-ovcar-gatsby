@@ -42,3 +42,5 @@ TBA
 
 - change link color
 - source contact data from contentful
+- make footer sticky
+- footer seo
