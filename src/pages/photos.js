@@ -1,13 +1,13 @@
-import React from "react"
-import { graphql } from "gatsby"
-import get from "lodash.get"
+import React from 'react';
+import { graphql } from 'gatsby';
+import get from 'lodash.get';
 
-import Img from "gatsby-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Img from 'gatsby-image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 export default function Photos({ data }) {
-  const images = get(data, "allContentfulAsset.nodes")
+  const images = get(data, 'allContentfulAsset.nodes');
 
   return (
     <Layout>
@@ -15,13 +15,11 @@ export default function Photos({ data }) {
       <h2>Photos ({images.length})!</h2>
       <div style={{ display: `flex`, flexDirection: `column` }}>
         {images.map((image, i) => {
-          return (
-            <Img draggable={false} key={image.id + i} fixed={image.fixed} />
-          )
+          return <Img draggable={false} key={image.id + i} fixed={image.fixed} />;
         })}
       </div>
     </Layout>
-  )
+  );
 }
 
 export const query = graphql`
@@ -37,4 +35,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

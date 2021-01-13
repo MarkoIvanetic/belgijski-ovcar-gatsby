@@ -7,27 +7,18 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import { injectIntl } from 'gatsby-plugin-intl';
 
 import styles from './style/layout.module.scss';
 import Header from './header';
 import Footer from './footer';
+import SEO from './seo';
 
 const Layout = ({ children, intl }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <div className={styles.root}>
       <Header siteTitle={intl.formatMessage({ id: 'metadata_title' })} />
+      <SEO lang={intl.locale} title={intl.formatMessage({ id: 'metadata_title' })} keywords={[`gatsby`, `application`, `react`]} />
       <main>{children}</main>
       <Footer />
     </div>
@@ -36,6 +27,10 @@ const Layout = ({ children, intl }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  intl: PropTypes.shape({
+    locale: PropTypes.string,
+    formatMessage: PropTypes.func,
+  }),
 };
 
 export default injectIntl(Layout);

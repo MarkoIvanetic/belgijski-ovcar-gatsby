@@ -1,10 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import get from "lodash.get"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import get from 'lodash.get';
 
 export default function Contact({ data }) {
-  const { email, phone } = get(data, "allContentfulContact.nodes[0]")
+  const { email, phone } = get(data, 'allContentfulContact.nodes[0]');
 
   return (
     <Layout>
@@ -23,7 +23,7 @@ export default function Contact({ data }) {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const query = graphql`
@@ -35,4 +35,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

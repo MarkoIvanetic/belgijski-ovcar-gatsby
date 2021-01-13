@@ -1,29 +1,40 @@
 import React from 'react';
 import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl';
 import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/seo';
+import { PlaceholderImage } from '../components/placeholderImage';
+import styles from '../styles/index.scss';
+
+{
+  /* <FormattedMessage id="nav_2" />; */
+}
 
 const IndexPage = () => {
-  const intl = useIntl();
+  // const intl = useIntl();
+  // console.log(intl);
   return (
     <Layout>
-      <SEO lang={intl.locale} title={intl.formatMessage({ id: 'metadata_title' })} keywords={[`gatsby`, `application`, `react`]} />
-      <h1>
-        <FormattedMessage id="nav_0" />
-      </h1>
-      <p>
-        <FormattedMessage id="nav_1" />
-      </p>
-      <p>
-        <FormattedMessage id="nav_2" />
-      </p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
+      <div>
+        <PlaceholderImage width="275px" />
+        <PlaceholderImage width="275px" />
+        <PlaceholderImage width="275px" />
+        <PlaceholderImage width="275px" />
+        <PlaceholderImage width="275px" />
       </div>
-      <Link to="/blog/">
-        <FormattedMessage id="nav_2" />
-      </Link>
+
+      <div>
+        <h5>
+          <FormattedMessage id="home_h5" />
+        </h5>
+        <p>
+          <FormattedMessage id="home_p1" />
+        </p>
+        <p>
+          <FormattedMessage id="home_p2" />
+        </p>
+        <p>
+          <FormattedMessage id="home_p3" />
+        </p>
+      </div>
     </Layout>
   );
 };
