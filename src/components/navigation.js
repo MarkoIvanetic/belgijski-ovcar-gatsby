@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby-plugin-intl';
+import { FormattedMessage, Link } from 'gatsby-plugin-intl';
 import styles from './style/navigation.module.scss';
 
 const ListLink = (props) => (
@@ -10,10 +10,20 @@ const ListLink = (props) => (
 
 export const Navigation = () => (
   <ul role="navigation" className={styles.list}>
-    <ListLink to="/">Home</ListLink>
-    <ListLink to="/photos/">Photos</ListLink>
-    <ListLink to="/about/">About</ListLink>
-    <ListLink to="/blog/">Blog</ListLink>
-    <ListLink to="/contact/">Contact</ListLink>
+    <ListLink to="/">
+      <FormattedMessage id="nav_0" />
+    </ListLink>
+    <ListLink to="/ovcar/">
+      <FormattedMessage id="nav_1" />
+    </ListLink>
+    <ListLink to="/photos/">
+      <FormattedMessage id="nav_2" />
+    </ListLink>
+    <ListLink to="/blog/">
+      <FormattedMessage id="nav_3" />
+    </ListLink>
+    <ListLink to="/contact/">
+      <FormattedMessage id="nav_4" />
+    </ListLink>
   </ul>
 );
