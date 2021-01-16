@@ -1,0 +1,11 @@
+.gallery {
+  margin-bottom: 1rem;
+
+  & > div {
+    margin: auto;
+  }
+}
+
+.gallery-title {
+  margin: 0;
+}

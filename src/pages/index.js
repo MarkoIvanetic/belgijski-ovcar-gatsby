@@ -1,8 +1,8 @@
 import React from 'react';
-import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl';
+import { FormattedMessage } from 'gatsby-plugin-intl';
 import Layout from '../components/layout';
 import { PlaceholderImage } from '../components/placeholderImage';
-import styles from '../styles/index.scss';
+import '../styles/index.scss';
 
 {
   /* <FormattedMessage id="nav_2" />; */

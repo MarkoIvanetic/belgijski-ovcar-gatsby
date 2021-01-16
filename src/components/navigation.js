@@ -16,7 +16,7 @@ export const Navigation = () => (
     <ListLink to="/ovcar/">
       <FormattedMessage id="nav_1" />
     </ListLink>
-    <ListLink to="/photos/">
+    <ListLink to="/gallery/">
       <FormattedMessage id="nav_2" />
     </ListLink>
     <ListLink to="/blog/">

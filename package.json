@@ -12,6 +12,7 @@
     "belgijski-ovcar-gatsby": "cleanup.js"
   },
   "dependencies": {
+    "@browniebroke/gatsby-image-gallery": "^4.0.2",
     "@emotion/react": "^11.1.2",
     "@emotion/styled": "^11.0.0",
     "dotenv": "^8.2.0",
@@ -32,10 +33,13 @@
     "gatsby-transformer-remark": "^2.13.1",
     "gatsby-transformer-sharp": "^2.9.0",
     "lodash": "^4.17.20",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "react-image-lightbox": "^5.1.1",
     "react-typography": "^0.16.19",
     "sass": "^1.32.4",
     "typography": "^0.16.19"
