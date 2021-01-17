@@ -1,9 +1,15 @@
-import React from "react"
-import { injectIntl } from "gatsby-plugin-intl"
-import SEO from "../components/seo"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { injectIntl } from 'gatsby-plugin-intl';
+import SEO from '../components/seo';
 
 const Redirect = ({ intl }) => {
-  return <SEO title={`${intl.formatMessage({ id: "title" })}`} />
-}
+  return <SEO title={`${intl.formatMessage({ id: 'metadata_metatitle' })}`} />;
+};
 
-export default injectIntl(Redirect)
+Redirect.propTypes = {
+  to: PropTypes.string.isRequired,
+  intl: PropTypes.shape({ formatMessage: PropTypes.func }),
+};
+
+export default injectIntl(Redirect);

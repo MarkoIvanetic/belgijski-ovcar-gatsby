@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormattedMessage, Link } from 'gatsby-plugin-intl';
 import styles from './style/navigation.module.scss';
 
-const ListLink = (props) => (
+const ListLink = ({ to, children }) => (
   <li>
-    <Link to={props.to}>{props.children}</Link>
+    <Link to={to}>{children}</Link>
   </li>
 );
 
@@ -16,14 +17,16 @@ export const Navigation = () => (
     <ListLink to="/ovcar/">
       <FormattedMessage id="nav_1" />
     </ListLink>
-    <ListLink to="/gallery/">
+    <ListLink to="/galerije/">
       <FormattedMessage id="nav_2" />
     </ListLink>
-    <ListLink to="/blog/">
+    <ListLink to="/rodovnice/">
       <FormattedMessage id="nav_3" />
-    </ListLink>
-    <ListLink to="/contact/">
-      <FormattedMessage id="nav_4" />
     </ListLink>
   </ul>
 );
+
+ListLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]).isRequired,
+};

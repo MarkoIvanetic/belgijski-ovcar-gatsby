@@ -26,6 +26,7 @@ const typography = new Typography({
     },
     p: { marginBottom: 0 },
     img: { marginBottom: 0 },
+    h3: { marginBottom: 0 },
   }),
 });
 export const { scale, rhythm, options } = typography;

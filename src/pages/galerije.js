@@ -4,8 +4,9 @@ import get from 'lodash.get';
 
 import Layout from '../components/layout';
 import styles from '../styles/gallery.module.scss';
+import Gallery from '../components/gallery/gallery';
 
-import Gallery from '@browniebroke/gatsby-image-gallery';
+// import Gallery from '@browniebroke/gatsby-image-gallery';
 import '@browniebroke/gatsby-image-gallery/dist/style.css';
 
 export default function Photos({ data }) {
@@ -28,12 +29,7 @@ export default function Photos({ data }) {
     <Layout>
       <div>
         {galleries.map(({ id, title, thumbAlt, images }, i) => {
-          return (
-            <div className={styles.gallery} key={id}>
-              <h3 className={styles.galleryTitle}>{title}</h3>
-              <Gallery images={images} />
-            </div>
-          );
+          return <Gallery key={id} images={images} title={title} />;
         })}
       </div>
     </Layout>

@@ -1,21 +1,14 @@
-import React from "react"
-import { css } from "@emotion/react"
-import { rhythm } from "../utils/typography"
-import Img from "gatsby-image"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from 'react';
+import { css } from '@emotion/react';
+import { rhythm } from '../utils/typography';
+import Img from 'gatsby-image';
+import { Link } from 'gatsby';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-const BlogPost = data => {
-  console.log(data.pathContext.data)
-  const {
-    id,
-    title,
-    body,
-    heroImage,
-    tags,
-    publishDate,
-  } = data.pathContext.data.node
+const BlogPost = (data) => {
+  console.log(data.pathContext.data);
+  const { id, title, body, heroImage, tags, publishDate } = data.pathContext.data.node;
 
   return (
     <Layout>
@@ -26,21 +19,19 @@ const BlogPost = data => {
             <h3
               css={css`
                 margin-bottom: ${rhythm(1 / 4)};
-              `}
-            >
+              `}>
               {title}
               <span
                 css={css`
                   color: #bbb;
-                `}
-              >
+                `}>
                 — {publishDate}
               </span>
             </h3>
             <Img fluid={heroImage.fluid} alt={heroImage.title} />
             <div
               dangerouslySetInnerHTML={{
-                __html: body?.childMarkdownRemark?.html || "",
+                __html: body?.childMarkdownRemark?.html || '',
               }}
             />
           </div>
@@ -50,7 +41,7 @@ const BlogPost = data => {
         </>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPost
+export default BlogPost;
