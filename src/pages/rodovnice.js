@@ -12,7 +12,7 @@ import { GalleryComponent } from '../components/gallery';
 
 const Rodovnice = ({ data }) => {
   const pedigreeImages = get(data, 'allContentfulRodovnica.nodes').map((ped) => {
-    const { id, dog_name: thumbAlt, dog_name: caption, image } = ped;
+    const { id, name: thumbAlt, name: caption, image } = ped;
     return {
       ...image,
       id,
@@ -35,7 +35,7 @@ export const query = graphql`
   {
     allContentfulRodovnica {
       nodes {
-        dog_name
+        name
         id
         image {
           thumb: fluid(maxWidth: 280, maxHeight: 280) {

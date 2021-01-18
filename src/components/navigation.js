@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, Link } from 'gatsby-plugin-intl';
 import styles from './style/navigation.module.scss';
 
-const ListLink = ({ to, children }) => (
-  <li>
-    <Link to={to}>{children}</Link>
-  </li>
-);
+const ListLink = ({ to, children }) => {
+  return (
+    <li>
+      <Link to={to}>{children}</Link>
+    </li>
+  );
+};
 
 export const Navigation = () => (
   <ul role="navigation" className={styles.list}>
@@ -28,5 +30,5 @@ export const Navigation = () => (
 
 ListLink.propTypes = {
   to: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]).isRequired,
+  children: PropTypes.object.isRequired,
 };
