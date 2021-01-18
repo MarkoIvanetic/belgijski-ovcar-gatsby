@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/react';
+// import { css } from '@emotion/react';
 import { rhythm } from '../utils/typography';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';

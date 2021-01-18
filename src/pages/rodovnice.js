@@ -10,7 +10,7 @@ import Layout from '../components/layout';
 
 import { GalleryComponent } from '../components/gallery';
 
-const BlogPosts = ({ data }) => {
+const Rodovnice = ({ data }) => {
   const pedigreeImages = get(data, 'allContentfulRodovnica.nodes').map((ped) => {
     const { id, dog_name: thumbAlt, dog_name: caption, image } = ped;
     return {
@@ -29,7 +29,7 @@ const BlogPosts = ({ data }) => {
   );
 };
 
-export default BlogPosts;
+export default Rodovnice;
 
 export const query = graphql`
   {
