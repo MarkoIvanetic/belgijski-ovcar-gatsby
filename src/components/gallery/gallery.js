@@ -29,7 +29,7 @@ const Gallery = ({ lightboxOptions, ...rest }) => {
 
   return (
     <Root>
-      <h3>{title}</h3>
+      {title && <h3>{title}</h3>}
       <ThumbGrid {...rest} handleOpen={handleOpen} />
       {showLightbox && selectedImage !== null && (
         <LightBox
@@ -66,7 +66,7 @@ Gallery.defaultProps = {
   images: [],
   gutter: '0.25rem',
   colWidth: 100 / 3,
-  mdColWidth: 100 / 4,
+  mdColWidth: 100 / 5,
   imgClass: '',
   lightboxOptions: {},
 };

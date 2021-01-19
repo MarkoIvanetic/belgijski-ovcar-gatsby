@@ -44,3 +44,4 @@ TBA
 - source contact data from contentful
 - make footer sticky
 - footer seo
+- gallery grid responsive

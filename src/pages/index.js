@@ -22,9 +22,9 @@ const IndexPage = () => {
       </div>
 
       <div>
-        <h5>
+        <h3>
           <FormattedMessage id="home_h5" />
-        </h5>
+        </h3>
         <p>
           <FormattedMessage id="home_p1" />
         </p>

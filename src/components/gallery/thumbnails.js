@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import { Col, Row } from './grid';
 
 const ThumbGrid = ({ images, colWidth, mdColWidth, gutter, imgClass, handleOpen }) => {
+  console.log(mdColWidth);
   return (
     <Row>
       {images.map(({ id, title, thumb, thumbAlt }, thumbIndex) => {
@@ -17,7 +18,7 @@ const ThumbGrid = ({ images, colWidth, mdColWidth, gutter, imgClass, handleOpen 
               handleOpen(thumbIndex);
             }}>
             <div style={{ margin: gutter }}>
-              {title ? <h3>{title}</h3> : null}
+              {title && <h3>{title}</h3>}
               <Img fluid={thumb} className={imgClass} alt={thumbAlt} />
             </div>
           </Col>
@@ -41,14 +42,6 @@ ThumbGrid.propTypes = {
   mdColWidth: PropTypes.number,
   gutter: PropTypes.string,
   imgClass: PropTypes.string,
-};
-
-ThumbGrid.defaultProps = {
-  images: [],
-  gutter: '0.25rem',
-  colWidth: 100 / 3,
-  mdColWidth: 100 / 4,
-  imgClass: '',
 };
 
 export default ThumbGrid;
