@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RaLightbox from 'react-image-lightbox';
+import RiLightbox from 'react-image-lightbox';
 
 const Lightbox = ({ images, selectedImage, handleClose, handlePrevRequest, handleNextRequest }) => {
   const fullArray = images.filter((image) => image.full !== undefined).map(({ full }) => full.src);
@@ -8,7 +8,7 @@ const Lightbox = ({ images, selectedImage, handleClose, handlePrevRequest, handl
 
   const lightboxOptions = {};
   return (
-    <RaLightbox
+    <RiLightbox
       mainSrc={fullArray[selectedImage]}
       nextSrc={fullArray[selectedImage + 1]}
       prevSrc={fullArray[selectedImage - 1]}

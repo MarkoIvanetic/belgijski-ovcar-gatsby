@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ThumbGrid from './thumbnails';
 import LightBox from './lightbox';
-import { Root } from './grid';
+import styles from '../style/gallery.module.scss';
 
 const Gallery = ({ lightboxOptions, ...rest }) => {
   const { images, title } = rest;
@@ -28,7 +28,7 @@ const Gallery = ({ lightboxOptions, ...rest }) => {
   };
 
   return (
-    <Root>
+    <div className={styles.root}>
       {title && <h3>{title}</h3>}
       <ThumbGrid {...rest} handleOpen={handleOpen} />
       {showLightbox && selectedImage !== null && (
@@ -41,7 +41,7 @@ const Gallery = ({ lightboxOptions, ...rest }) => {
           lightboxOptions={lightboxOptions}
         />
       )}
-    </Root>
+    </div>
   );
 };
 
@@ -65,8 +65,6 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
   images: [],
   gutter: '0.25rem',
-  colWidth: 100 / 3,
-  mdColWidth: 100 / 5,
   imgClass: '',
   lightboxOptions: {},
 };

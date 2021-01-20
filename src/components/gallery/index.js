@@ -1,3 +1,3 @@
 import GalleryComponent from './gallery';
 
-export { GalleryComponent };
+export default GalleryComponent;

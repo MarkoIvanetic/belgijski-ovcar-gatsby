@@ -4,7 +4,7 @@ import get from 'lodash.get';
 
 import Layout from '../components/layout';
 import styles from '../styles/gallery.module.scss';
-import Gallery from '../components/gallery/gallery';
+import Gallery from '../components/gallery';
 
 // import Gallery from '@browniebroke/gatsby-image-gallery';
 import '@browniebroke/gatsby-image-gallery/dist/style.css';
