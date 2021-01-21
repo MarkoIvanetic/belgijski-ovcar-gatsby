@@ -14,12 +14,12 @@ import Header from './header';
 import Footer from './footer';
 import SEO from './seo';
 
-const Layout = ({ children, intl }) => {
+const Layout = ({ page, children, intl }) => {
   return (
     <div className={styles.root}>
-      <Header siteTitle={intl.formatMessage({ id: 'metadata_title' })} />
       <SEO lang={intl.locale} title={intl.formatMessage({ id: 'metadata_title' })} keywords={[`gatsby`, `application`, `react`]} />
-      <main>{children}</main>
+      <Header siteTitle={intl.formatMessage({ id: 'metadata_title' })} siteSubtitle={intl.formatMessage({ id: 'metadata_subtitle' })} />
+      <main className={styles.main}>{children}</main>
       <Footer />
     </div>
   );

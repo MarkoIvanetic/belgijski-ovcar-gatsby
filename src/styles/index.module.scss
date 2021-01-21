@@ -1,0 +1,38 @@
+.image-container {
+  display: flex;
+
+  & > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    @media only screen and (min-width: 1200px) {
+      margin-left: -5px;
+    }
+  }
+
+  & > div:not(:first-child) {
+    @media only screen and (max-width: 1199px) {
+      display: none;
+    }
+  }
+}
+
+.article-container {
+  flex: 1;
+  padding: 10px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding-top: 0px;
+  h3 {
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  p {
+    color: #888;
+  }
+}
+
+.grid-image {
+  margin: 5px;
+}

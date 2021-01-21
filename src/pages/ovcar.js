@@ -7,17 +7,17 @@ import get from 'lodash.get';
 
 import { FormattedMessage } from 'gatsby-plugin-intl';
 import Layout from '../components/layout';
-import '../styles/index.scss';
+import styles from '../styles/index.module.scss';
 
 const Ovcar = ({ data }) => {
   const imageFluid = get(data, 'contentfulAsset.fluid');
   return (
     <Layout>
-      <div>
+      <div className={styles.imageContainer}>
         <Img fluid={imageFluid} />
       </div>
 
-      <div>
+      <div className={styles.articleContainer}>
         <h3>
           <FormattedMessage id="ovcar_h5" />
         </h3>

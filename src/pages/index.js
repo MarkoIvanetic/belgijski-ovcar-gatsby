@@ -8,31 +8,29 @@ import { FormattedMessage } from 'gatsby-plugin-intl';
 import get from 'lodash.get';
 
 import Layout from '../components/layout';
-import { PlaceholderImage } from '../components/placeholderImage';
-import '../styles/index.scss';
+import styles from '../styles/index.module.scss';
 
 {
   /* <FormattedMessage id="nav_2" />; */
 }
 
 const IndexPage = ({ data }) => {
-  console.log(data);
-
-  // const { img_1, img_2, img_3,img_4, img_5 } = get(data, 'allContentfulAsset.nodes');
   const { img_1, img_2, img_3, img_4, img_5 } = data;
-  // console.log(imageFluid);
-
   return (
     <Layout>
-      <div>
-        <Img fixed={img_1.fixed} />
-        <Img fixed={img_2.fixed} />
-        <Img fixed={img_3.fixed} />
-        <Img fixed={img_4.fixed} />
-        <Img fixed={img_5.fixed} />
+      <div className={styles.imageContainer}>
+        <div>
+          <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
+          <Img className={styles.gridImage} fluid={img_2.fluid} alt={img_2.title} />
+        </div>
+        <div>
+          <Img className={styles.gridImage} fixed={img_3.fixed} alt={img_3.title} />
+          <Img className={styles.gridImage} fixed={img_4.fixed} alt={img_4.title} />
+          <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
+        </div>
       </div>
 
-      <div>
+      <div className={styles.articleContainer}>
         <h3>
           <FormattedMessage id="home_h5" />
         </h3>
@@ -51,14 +49,33 @@ const IndexPage = ({ data }) => {
 };
 
 IndexPage.propTypes = {
-  data: PropTypes.shape({
-    contentfulAsset: PropTypes.object,
-  }),
+  data: PropTypes.object,
 };
 
 export const query = graphql`
   query MyQuery {
-    img_1: contentfulAsset(title: { eq: "nikola 0" }) {
+    img_1: contentfulAsset(title: { eq: "nikola 1" }) {
+      title
+      fluid(maxWidth: 455) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
+    img_2: contentfulAsset(title: { eq: "nikola 2" }) {
+      title
+      fluid(maxWidth: 455) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
+    img_3: contentfulAsset(title: { eq: "nikola 3" }) {
+      title
       fixed(width: 275) {
         base64
         width
@@ -67,7 +84,8 @@ export const query = graphql`
         srcSet
       }
     }
-    img_2: contentfulAsset(title: { eq: "nikola 1" }) {
+    img_4: contentfulAsset(title: { eq: "nikola 4" }) {
+      title
       fixed(width: 275) {
         base64
         width
@@ -76,25 +94,8 @@ export const query = graphql`
         srcSet
       }
     }
-    img_3: contentfulAsset(title: { eq: "nikola 2" }) {
-      fixed(width: 275) {
-        base64
-        width
-        height
-        src
-        srcSet
-      }
-    }
-    img_4: contentfulAsset(title: { eq: "nikola 3" }) {
-      fixed(width: 275) {
-        base64
-        width
-        height
-        src
-        srcSet
-      }
-    }
-    img_5: contentfulAsset(title: { eq: "nikola 4" }) {
+    img_5: contentfulAsset(title: { eq: "nikola 5" }) {
+      title
       fixed(width: 275) {
         base64
         width
@@ -107,12 +108,17 @@ export const query = graphql`
 `;
 
 // export const query = graphql`
-// {
-//   allContentfulAsset(filter: {title: {regex: "/^nikola \\d/"}}) {
+// query IndexPagePhotosQuery {
+//   allContentfulAsset(filter: {title: {regex: "/^nikola \\d/"}}, sort: {fields: title}) {
 //     nodes {
-//       fluid {
+//       fixed(width: 275) {
+//         base64
+//         width
+//         height
 //         src
+//         srcSet
 //       }
+//       title
 //     }
 //   }
 // }

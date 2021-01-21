@@ -45,3 +45,5 @@ TBA
 - make footer sticky
 - footer seo
 - gallery grid responsive
+- seo, helmet, titles
+- seo image alt, link props
