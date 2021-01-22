@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
+import styles from '../style/gallery.module.scss';
 
-import { Col, Row } from './grid';
-
-const ThumbGrid = ({ images, colWidth, mdColWidth, gutter, imgClass, handleOpen }) => {
-  console.log(mdColWidth);
+const ThumbGrid = ({ images, colWidth, gutter, imgClass, handleOpen }) => {
   return (
-    <Row>
+    <div className={styles.imageRow}>
       {images.map(({ id, title, thumb, thumbAlt }, thumbIndex) => {
         return (
-          <Col
+          <div
+            className={styles.imageWrap}
             width={colWidth}
-            md={mdColWidth}
             key={id}
             onClick={() => {
               handleOpen(thumbIndex);
@@ -21,10 +19,10 @@ const ThumbGrid = ({ images, colWidth, mdColWidth, gutter, imgClass, handleOpen 
               {title && <h3>{title}</h3>}
               <Img fluid={thumb} className={imgClass} alt={thumbAlt} />
             </div>
-          </Col>
+          </div>
         );
       })}
-    </Row>
+    </div>
   );
 };
 

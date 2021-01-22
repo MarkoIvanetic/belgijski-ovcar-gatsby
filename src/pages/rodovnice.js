@@ -2,13 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import get from 'lodash.get';
 
-// import Gallery from '@browniebroke/gatsby-image-gallery';
-// import '@browniebroke/gatsby-image-gallery/dist/style.css';
-import styles from '../styles/gallery.module.scss';
-
 import Layout from '../components/layout';
-
-import { GalleryComponent } from '../components/gallery';
+import Gallery from '../components/gallery';
 
 const Rodovnice = ({ data }) => {
   const pedigreeImages = get(data, 'allContentfulRodovnica.nodes').map((ped) => {
@@ -24,7 +19,7 @@ const Rodovnice = ({ data }) => {
 
   return (
     <Layout>
-      <GalleryComponent images={pedigreeImages} />;
+      <Gallery images={pedigreeImages} />;
     </Layout>
   );
 };

@@ -1,19 +1,23 @@
 import React from 'react';
-// import { Link, graphql } from "gatsby"
-import '../styles/index.scss';
-import Layout from '../components/layout';
+import PropTypes from 'prop-types';
 
-import { PlaceholderImage } from '../components/placeholderImage';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import get from 'lodash.get';
+
 import { FormattedMessage } from 'gatsby-plugin-intl';
+import Layout from '../components/layout';
+import styles from '../styles/index.module.scss';
 
-const About = ({ data }) => {
+const Ovcar = ({ data }) => {
+  const imageFluid = get(data, 'contentfulAsset.fluid');
   return (
     <Layout>
-      <div>
-        <PlaceholderImage width="100%" />
+      <div className={styles.imageContainer}>
+        <Img fluid={imageFluid} />
       </div>
 
-      <div>
+      <div className={styles.articleContainer}>
         <h3>
           <FormattedMessage id="ovcar_h5" />
         </h3>
@@ -34,19 +38,24 @@ const About = ({ data }) => {
   );
 };
 
-export default About;
+export default Ovcar;
 
-// export const query = graphql`
-//   query BlogPostsPageQuery {
-//     allContentfulBlogPost(limit: 1000) {
-//       totalCount
-//       edges {
-//         node {
-//           id
-//           title
-//           slug
-//         }
-//       }
-//     }
-//   }
-// `
+Ovcar.propTypes = {
+  data: PropTypes.shape({
+    contentfulAsset: PropTypes.object,
+  }),
+};
+
+export const query = graphql`
+  {
+    contentfulAsset(file: { fileName: { eq: "belgijski_ovcar.jpg" } }) {
+      fluid {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
+  }
+`;

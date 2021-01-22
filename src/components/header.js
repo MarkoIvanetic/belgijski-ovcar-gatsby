@@ -8,7 +8,7 @@ import { Navigation } from './navigation';
 import Img from 'gatsby-image';
 import { useStaticQuery } from 'gatsby';
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, siteSubtitle }) => {
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "dogbanner.png" }) {
@@ -26,13 +26,13 @@ const Header = ({ siteTitle }) => {
       <div className={styles.header}>
         <div className={styles.logo}>
           <Link to="/">
-            <Img style={{ margin: '10px 10px 0px 10px' }} loading="eager" fixed={data.file.childImageSharp.fixed} />
+            <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={data.file.childImageSharp.fixed} />
           </Link>
         </div>
         <div className={styles.title}>
           <Link to="/">
             <h1>{siteTitle}</h1>
-            <h2>{siteTitle}</h2>
+            <h2>{siteSubtitle}</h2>
           </Link>
         </div>
       </div>
@@ -44,11 +44,8 @@ const Header = ({ siteTitle }) => {
 };
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: '',
+  siteTitle: PropTypes.string.isRequired,
+  siteSubtitle: PropTypes.string.isRequired,
 };
 
 export default Header;
