@@ -14,8 +14,9 @@ import styles from '../styles/index.module.scss';
   /* <FormattedMessage id="nav_2" />; */
 }
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { img_1, img_2, img_3, img_4, img_5 } = data;
+  console.log(location);
   return (
     <Layout>
       <div className={styles.imageContainer}>

@@ -6,16 +6,18 @@
 }
 
 h1,
-h2 {
+h2,
+h3 {
   letter-spacing: 1px;
   margin: 0;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 400;
 }
 
 h1 {
   color: var(--dark);
   font-size: 4rem;
   line-height: 1.15;
-  font-weight: 600;
 }
 
 h2 {
@@ -26,6 +28,7 @@ h2 {
 
 body {
   margin: 0;
+  font-family: 'Crimson Text', serif;
 }
 
 main {
