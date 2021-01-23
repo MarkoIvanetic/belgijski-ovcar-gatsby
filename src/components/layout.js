@@ -14,7 +14,7 @@ import Header from './header';
 import Footer from './footer';
 import SEO from './seo';
 
-const Layout = ({ page, children, intl }) => {
+const Layout = ({ children, intl }) => {
   return (
     <div className={styles.root}>
       <SEO lang={intl.locale} title={intl.formatMessage({ id: 'metadata_title' })} keywords={[`gatsby`, `application`, `react`]} />

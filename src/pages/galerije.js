@@ -6,9 +6,6 @@ import Layout from '../components/layout';
 import styles from '../styles/gallery.module.scss';
 import Gallery from '../components/gallery';
 
-// import Gallery from '@browniebroke/gatsby-image-gallery';
-import '@browniebroke/gatsby-image-gallery/dist/style.css';
-
 export default function Photos({ data }) {
   console.log(get(data, 'allContentfulGallery.nodes'));
   const galleries = get(data, 'allContentfulGallery.nodes').filter((gallery) => {
@@ -29,7 +26,12 @@ export default function Photos({ data }) {
     <Layout>
       <div>
         {galleries.map(({ id, title, thumbAlt, images }, i) => {
-          return <Gallery key={id} images={images} title={title} />;
+          return (
+            <>
+              <Gallery key={id} images={images} title={title} />
+              <hr />
+            </>
+          );
         })}
       </div>
     </Layout>

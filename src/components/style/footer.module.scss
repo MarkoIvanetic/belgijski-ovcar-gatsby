@@ -4,6 +4,8 @@
   // right: 0;
   display: flex;
   // letter-spacing: 0.5px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin-bottom: 3rem;
 
   & > div {
     flex: 1;
@@ -13,6 +15,18 @@
   }
   & > div:last-of-type {
     text-align: right;
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+  }
+
+  a {
+    width: 24px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    margin-left: 5px;
   }
 
   strong {

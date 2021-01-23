@@ -9,7 +9,16 @@
     margin: 0;
     margin-right: 1rem;
     & > a {
+      &:hover {
+        border-bottom: 2px solid var(--gray);
+      }
       color: var(--gray);
+      & > span {
+        padding-bottom: 2px;
+      }
+    }
+    & > a[aria-current] {
+      border-bottom: 2px solid var(--gray);
     }
   }
 }
