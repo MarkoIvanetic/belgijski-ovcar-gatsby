@@ -29,6 +29,6 @@ export const onClientEntry = () => {
   window.onload = () => {
     // addScript('https://fast.wistia.com/embed/medias/9rvl8vgrzg.jsonp');
     addLink('https://fonts.gstatic.com', 'preconnect');
-    addLink('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Source+Serif+Pro&display=swap');
+    addLink('https://fonts.googleapis.com/css2?family=Crimson+Text&family=IBM+Plex+Sans&family=Source+Serif+Pro&display=swap');
   };
 };

@@ -5,18 +5,11 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { FormattedMessage } from 'gatsby-plugin-intl';
 
-import get from 'lodash.get';
-
 import Layout from '../components/layout';
 import styles from '../styles/index.module.scss';
 
-{
-  /* <FormattedMessage id="nav_2" />; */
-}
-
-const IndexPage = ({ data, location }) => {
+const IndexPage = ({ data }) => {
   const { img_1, img_2, img_3, img_4, img_5 } = data;
-  console.log(location);
   return (
     <Layout>
       <div className={styles.imageContainer}>
