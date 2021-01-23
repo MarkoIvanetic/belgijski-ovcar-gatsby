@@ -28,9 +28,11 @@ h2 {
 
 body {
   margin: 0;
+  padding: 0px 10px;
   font-family: 'Crimson Text', serif;
 }
 
 main {
   min-height: 50vh;
+  margin-bottom: 2.5rem;
 }
