@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import get from 'lodash.get';
 
@@ -22,6 +23,10 @@ const Rodovnice = ({ data }) => {
       <Gallery images={pedigreeImages} />;
     </Layout>
   );
+};
+
+Rodovnice.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Rodovnice;
