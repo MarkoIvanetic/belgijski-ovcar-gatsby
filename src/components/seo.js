@@ -10,22 +10,30 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords }) {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            title
-            description
+            description_de
+            description_en
+            description_hr
+            title_hr
+            title_en
+            title_de
             author
+            siteUrl
+            image
           }
         }
       }
     `,
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const title = site.siteMetadata['title_' + lang];
+  const metaDescription = site.siteMetadata['description_' + lang].replace('-', '|');
+  const image = `${site.siteMetadata.siteUrl}${site.siteMetadata.image}`;
 
   return (
     <Helmet
@@ -41,6 +49,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           property: `og:title`,
           content: title,
+        },
+        {
+          property: `og:image`,
+          content: image,
         },
         {
           property: `og:description`,
@@ -82,7 +94,21 @@ function SEO({ description, lang, meta, keywords, title }) {
 SEO.defaultProps = {
   lang: `hr`,
   meta: [],
-  keywords: [],
+  keywords: [
+    'belgijski ovcar',
+    'malinoa',
+    'malinois',
+    'ovcar',
+    'od slunja',
+    'nikola paulić',
+    'nikola paulic',
+    'uzgajivacnica',
+    'kennels',
+    'psi',
+    'dog',
+    'dog breeding',
+    'belgian shepard',
+  ],
   description: ``,
 };
 
@@ -91,7 +117,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default SEO;
