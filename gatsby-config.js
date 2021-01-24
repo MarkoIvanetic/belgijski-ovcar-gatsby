@@ -87,6 +87,28 @@ module.exports = {
       options: contentfulConfig,
     },
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Crimson Text`,
+            variants: [`400`],
+            subsets: [`latin`],
+          },
+          {
+            family: `IBM Plex Sans`,
+            variants: [`400`],
+            subsets: [`latin`],
+          },
+          {
+            family: `Source Serif Pro`,
+            variants: [`400`],
+            subsets: [`latin`],
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

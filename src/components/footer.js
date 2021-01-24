@@ -26,7 +26,7 @@ const Footer = () => {
   `);
 
   const { youtube, facebook } = data;
-
+  console.log(data);
   return (
     <footer className={styles.root}>
       <div>
