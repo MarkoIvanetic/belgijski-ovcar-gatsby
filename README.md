@@ -49,3 +49,5 @@ TBA
 - seo image alt, link props
 - typography prune
 - check style files
+- 404
+- siteMetadata -> site info
