@@ -15,33 +15,31 @@ const Ovcar = ({ data }) => {
   const image = data.contentfulAsset;
   return (
     <Layout>
-      <div className={styles.contentWrap}>
-        {size.width > 991 && (
-          <div className={styles.imageContainer}>
-            <Img fluid={image.fluid} alt={image.title} />
-          </div>
-        )}
+      {size.width > 991 && (
+        <div className={styles.imageContainer}>
+          <Img fluid={image.fluid} alt={image.title} />
+        </div>
+      )}
 
-        <div className={styles.articleContainer}>
-          <h3>
-            <FormattedMessage id="ovcar_h5" />
-          </h3>
+      <div className={styles.articleContainer}>
+        <h3>
+          <FormattedMessage id="ovcar_h5" />
+        </h3>
+        <p>
+          <FormattedMessage id="ovcar_p1" />
+        </p>
+        <div>
           <p>
-            <FormattedMessage id="ovcar_p1" />
-          </p>
-          <div>
-            <p>
-              {size.width <= 991 && <Img fixed={image.fixed} alt={image.title} />}
-              <FormattedMessage id="ovcar_p2" />
-            </p>
-          </div>
-          <p>
-            <FormattedMessage id="ovcar_p3" />
-          </p>
-          <p>
-            <FormattedMessage id="ovcar_p4" />
+            {size.width <= 991 && <Img fixed={image.fixed} alt={image.title} />}
+            <FormattedMessage id="ovcar_p2" />
           </p>
         </div>
+        <p>
+          <FormattedMessage id="ovcar_p3" />
+        </p>
+        <p>
+          <FormattedMessage id="ovcar_p4" />
+        </p>
       </div>
     </Layout>
   );
