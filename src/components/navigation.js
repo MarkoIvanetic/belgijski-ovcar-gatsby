@@ -13,9 +13,10 @@ const ListLink = ({ to, children }) => {
   );
 };
 
-export const Navigation = (props) => {
+export const Navigation = ({ children, mobile, listStyle }) => {
   return (
-    <ul role="navigation" className={styles.list}>
+    <ul role="navigation" className={mobile ? styles.mobileList : styles.list} style={listStyle}>
+      {children && <li>{children}</li>}
       <ListLink to="/">
         <FormattedMessage id="nav_0" />
       </ListLink>
@@ -35,4 +36,10 @@ export const Navigation = (props) => {
 ListLink.propTypes = {
   to: PropTypes.string.isRequired,
   children: PropTypes.object,
+};
+
+Navigation.propTypes = {
+  children: PropTypes.object,
+  listStyle: PropTypes.object,
+  mobile: PropTypes.bool,
 };

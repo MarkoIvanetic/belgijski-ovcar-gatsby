@@ -37,15 +37,6 @@ const intl = {
   },
 };
 
-// const {
-//   NODE_ENV,
-//   URL: NETLIFY_SITE_URL = 'https://www.example.com',
-//   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-//   CONTEXT: NETLIFY_ENV = NODE_ENV,
-// } = process.env;
-// const isNetlifyProduction = NETLIFY_ENV === 'production';
-// const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
-
 module.exports = {
   siteMetadata: {
     title_hr: intl.title.hr,
@@ -61,6 +52,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-robots-txt`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
@@ -77,27 +69,6 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   options: {
-    //     resolveEnv: () => NETLIFY_ENV,
-    //     env: {
-    //       production: {
-    //         policy: [{ userAgent: '*' }],
-    //       },
-    //       'branch-deploy': {
-    //         policy: [{ userAgent: '*', disallow: ['/'] }],
-    //         sitemap: null,
-    //         host: null,
-    //       },
-    //       'deploy-preview': {
-    //         policy: [{ userAgent: '*', disallow: ['/'] }],
-    //         sitemap: null,
-    //         host: null,
-    //       },
-    //     },
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-intl`,
       options: {
@@ -164,10 +135,15 @@ module.exports = {
         name: intl.title.hr,
         short_name: intl.title_short.hr,
         description: intl.desc.hr,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         lang: `hr`,
         start_url: `/hr/`,
         display: `standalone`,
         icon: `${__dirname}/static/site/favicon.png`,
+        icon_options: {
+          purpose: `maskable`,
+        },
         localize: [
           {
             start_url: `/en/`,

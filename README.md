@@ -45,6 +45,7 @@ TBA
 - make footer sticky
 - footer seo
 - gallery grid responsive
+- styles/style organization
 - seo, helmet, titles
 - seo image alt, link props
 - typography prune
@@ -52,4 +53,3 @@ TBA
 - 404
 - siteMetadata -> site info
 - check site image
-- check sitemap generation

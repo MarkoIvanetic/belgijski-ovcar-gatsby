@@ -18,8 +18,31 @@
 .title {
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 720px) {
+    font-size: 12px;
+  }
 }
 
-.logo {
-  // margin-right: 20px;
+.root-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray);
+  @media only screen and (max-width: 550px) {
+    margin-bottom: 15px;
+  }
+}
+
+.header-mobile {
+  display: flex;
+}
+
+.title-mobile {
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  cursor: pointer;
 }
