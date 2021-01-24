@@ -19,6 +19,24 @@ if (!spaceId || !accessToken) {
   throw new Error('Contentful spaceId and the access token need to be provided.');
 }
 
+const intl = {
+  title: {
+    hr: `Belgijski Ovčar - Uzgajivačnica Belgijskih Ovčara "Od Slunja"`,
+    en: `Belgian Shepard - Kennels "Od Slunja", Malinois training`,
+    de: `Belgischen Schäferhunde - Zwinger "Od Slunja", Malinois Ausbildung`,
+  },
+  title_short: {
+    hr: `Belgijski Ovčar`,
+    en: `Belgian Shepard`,
+    de: `Belgischen Schäferhunde`,
+  },
+  desc: {
+    hr: `Uzgoj, savjeti i dresura Belgijskih Ovčara Malinoa (Malinois). Trenirani pod vodstvom bivšeg zapovjednika voda zaštitno-tragačih pasa Nikole Pauliča`,
+    en: `Breeding, tips and training of Belgian Shepherds Malinois. Trained under the leadership of former platoon commander of protective-search dogs Nikola Paulič`,
+    de: `Zucht, Tipps und Training der Belgischen Schäferhunde Malinois. Ausbildung unter der Leitung des ehemaligen Zugführers der Schutzhunde Nikola Paulič`,
+  },
+};
+
 // const {
 //   NODE_ENV,
 //   URL: NETLIFY_SITE_URL = 'https://www.example.com',
@@ -30,13 +48,21 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: `My Awesome Blog`,
-    description: `An awesome blog displaying my awesome posts.`,
+    title_hr: intl.title.hr,
+    title_en: intl.title.en,
+    title_de: intl.title.de,
+    description_hr: intl.desc.hr,
+    description_en: intl.desc.en,
+    description_de: intl.desc.de,
     author: `Marko Ivanetic`,
+    siteUrl: `https://objective-euclid-682845.netlify.app/`,
+    image: `/site/dogbanner.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-advanced-sitemap`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-transformer-remark`,
@@ -87,6 +113,30 @@ module.exports = {
       options: contentfulConfig,
     },
     {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: `Crimson Text`,
+              variants: [`400`],
+              subsets: [`latin`],
+            },
+            {
+              family: `IBM Plex Sans`,
+              variants: [`400`],
+              subsets: [`latin`],
+            },
+            {
+              family: `Source Serif Pro`,
+              variants: [`400`],
+              subsets: [`latin`],
+            },
+          ],
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -111,17 +161,30 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Marko tester`,
-        short_name: `tester`,
-        start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
+        name: intl.title.hr,
+        short_name: intl.title_short.hr,
+        description: intl.desc.hr,
+        lang: `hr`,
+        start_url: `/hr/`,
         display: `standalone`,
         icon: `${__dirname}/static/site/favicon.png`,
+        localize: [
+          {
+            start_url: `/en/`,
+            lang: `en`,
+            name: intl.title.en,
+            short_name: intl.title_short.en,
+            description: intl.desc.en,
+          },
+          {
+            start_url: `/de/`,
+            lang: `de`,
+            name: intl.title.de,
+            short_name: intl.title_short.de,
+            description: intl.desc.de,
+          },
+        ],
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

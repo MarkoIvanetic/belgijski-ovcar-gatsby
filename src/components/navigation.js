@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, Link } from 'gatsby-plugin-intl';
 import styles from './style/navigation.module.scss';
 
-const ListLink = ({ to, children, page }) => {
-  console.log(page);
+const ListLink = ({ to, children }) => {
   return (
     <li>
       <Link to={to}>
@@ -35,6 +34,5 @@ export const Navigation = (props) => {
 
 ListLink.propTypes = {
   to: PropTypes.string.isRequired,
-  page: PropTypes.string.isRequired,
   children: PropTypes.object,
 };

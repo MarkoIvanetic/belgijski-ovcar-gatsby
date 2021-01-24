@@ -17,7 +17,7 @@ import SEO from './seo';
 const Layout = ({ children, intl }) => {
   return (
     <div className={styles.root}>
-      <SEO lang={intl.locale} title={intl.formatMessage({ id: 'metadata_title' })} keywords={[`gatsby`, `application`, `react`]} />
+      <SEO lang={intl.locale} />
       <Header siteTitle={intl.formatMessage({ id: 'metadata_title' })} siteSubtitle={intl.formatMessage({ id: 'metadata_subtitle' })} />
       <main className={styles.main}>{children}</main>
       <Footer />
