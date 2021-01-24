@@ -15,38 +15,40 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className={styles.imageContainer}>
-        {size.width > 720 && (
+      <div className={styles.news}></div>
+      <div className={styles.contentWrap}>
+        <div className={styles.imageContainer}>
+          {size.width > 720 && (
+            <div>
+              <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
+              <Img className={styles.gridImage} fluid={img_2.fluid} alt={img_2.title} />
+            </div>
+          )}
+          {size.width > 1200 && (
+            <div>
+              <Img className={styles.gridImage} fixed={img_3.fixed} alt={img_3.title} />
+              <Img className={styles.gridImage} fixed={img_4.fixed} alt={img_4.title} />
+              <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
+            </div>
+          )}
+        </div>
+        <div className={styles.articleContainer}>
+          <h3>
+            <FormattedMessage id="home_h5" />
+          </h3>
           <div>
-            <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
-            <Img className={styles.gridImage} fluid={img_2.fluid} alt={img_2.title} />
+            {size.width <= 720 && <Img className={`${styles.gridImage} wrapped-image`} fixed={img_3.fixed} alt={img_3.title} />}
+            <p>
+              <FormattedMessage id="home_p1" />
+            </p>
           </div>
-        )}
-        {size.width > 1200 && (
-          <div>
-            <Img className={styles.gridImage} fixed={img_3.fixed} alt={img_3.title} />
-            <Img className={styles.gridImage} fixed={img_4.fixed} alt={img_4.title} />
-            <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
-          </div>
-        )}
-      </div>
-
-      <div className={styles.articleContainer}>
-        <h3>
-          <FormattedMessage id="home_h5" />
-        </h3>
-        <div>
-          {size.width <= 720 && <Img className={`${styles.gridImage} wrapped-image`} fixed={img_3.fixed} alt={img_3.title} />}
           <p>
-            <FormattedMessage id="home_p1" />
+            <FormattedMessage id="home_p2" />
+          </p>
+          <p>
+            <FormattedMessage id="home_p3" />
           </p>
         </div>
-        <p>
-          <FormattedMessage id="home_p2" />
-        </p>
-        <p>
-          <FormattedMessage id="home_p3" />
-        </p>
       </div>
     </Layout>
   );

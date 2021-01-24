@@ -1,5 +1,6 @@
 .image-container {
   display: flex;
+  flex: 1;
 
   .main-image {
     display: none;
@@ -41,4 +42,8 @@
 
 .grid-image {
   margin: 5px;
+}
+
+.contentWrap {
+  display: flex;
 }
