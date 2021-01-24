@@ -1,7 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { FormattedMessage } from 'gatsby-plugin-intl';
-import { useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import styles from './style/footer.module.scss';
 

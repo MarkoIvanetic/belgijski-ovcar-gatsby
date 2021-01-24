@@ -22,3 +22,31 @@
     }
   }
 }
+
+.mobile-list {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  font-size: 1rem;
+  position: absolute;
+  background: white;
+  border-bottom: 1px solid black;
+  width: 100%;
+  top: 67px;
+  z-index: 1;
+
+  transition: transform 0.1s ease-in-out;
+
+  & > li {
+    text-transform: uppercase;
+    display: flex;
+
+    & > a {
+      width: 100%;
+      color: var(--gray);
+    }
+    & > a[aria-current] {
+      border: 1px solid white;
+    }
+  }
+}

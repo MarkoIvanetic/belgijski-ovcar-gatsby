@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby-plugin-intl';
 import styles from './style/header.module.scss';
 
 import Language from './language';
+
 import { Navigation } from './navigation';
 import Img from 'gatsby-image';
-import { useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
-const Header = ({ siteTitle, siteSubtitle }) => {
+const MenuIcon = ({ onToggleMenu }) => (
+  <div className={styles.menuIcon} onClick={onToggleMenu}>
+    <svg viewBox="0 0 100 80" width="30" height="30">
+      <rect width="100" height="10"></rect>
+      <rect y="30" width="100" height="10"></rect>
+      <rect y="60" width="100" height="10"></rect>
+    </svg>
+  </div>
+);
+
+const Header = ({ size, siteTitle, siteSubtitle }) => {
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "dogbanner.png" }) {
         childImageSharp {
-          fixed(width: 120, height: 128) {
+          screen: fixed(width: 120) {
+            ...GatsbyImageSharpFixed
+          }
+          mobile: fixed(width: 48) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -21,12 +35,30 @@ const Header = ({ siteTitle, siteSubtitle }) => {
     }
   `);
 
+  const { screen, mobile } = data.file.childImageSharp;
+
+  const headerProps = {
+    styles,
+    logo: { screen, mobile },
+    size,
+    siteTitle,
+    siteSubtitle,
+  };
+
+  const headerComp = useMemo(() => {
+    return size.width > 550 ? <DesktopHeader {...headerProps} /> : <MobileHeader {...headerProps} />;
+  }, [size.width]);
+
+  return headerComp;
+};
+
+const DesktopHeader = ({ size, styles, logo, siteTitle, siteSubtitle }) => {
   return (
     <header className={styles.root}>
       <div className={styles.header}>
         <div className={styles.logo}>
           <Link to="/">
-            <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={data.file.childImageSharp.fixed} />
+            <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={logo.screen} />
           </Link>
         </div>
         <div className={styles.title}>
@@ -36,16 +68,66 @@ const Header = ({ siteTitle, siteSubtitle }) => {
           </Link>
         </div>
       </div>
-
       <Language />
       <Navigation />
     </header>
   );
 };
 
+const MobileHeader = ({ size, styles, logo, siteTitle, siteSubtitle }) => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  return (
+    <header className={styles.rootMobile}>
+      <div className={styles.headerMobile}>
+        <div className={styles.logo}>
+          <Link to="/">
+            <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={logo.mobile} />
+          </Link>
+        </div>
+        <div className={styles.titleMobile}>
+          <Link to="/">
+            <h1>{siteTitle}</h1>
+            <h2>{siteSubtitle}</h2>
+          </Link>
+        </div>
+      </div>
+
+      <Navigation mobile={true} listStyle={{ transform: showMenu ? 'translateX(0)' : 'translateX(100%)' }}>
+        <Language />
+      </Navigation>
+
+      <MenuIcon
+        onToggleMenu={() => {
+          setShowMenu(!showMenu);
+        }}
+      />
+    </header>
+  );
+};
+
+MenuIcon.propTypes = {
+  onToggleMenu: PropTypes.func,
+};
+
 Header.propTypes = {
   siteTitle: PropTypes.string.isRequired,
   siteSubtitle: PropTypes.string.isRequired,
+  size: PropTypes.shape({
+    width: PropTypes.number,
+    heigth: PropTypes.number,
+  }),
+};
+
+DesktopHeader.propTypes = MobileHeader.propTypes = {
+  styles: PropTypes.object.isRequired,
+  logo: PropTypes.object.isRequired,
+  siteTitle: PropTypes.string.isRequired,
+  siteSubtitle: PropTypes.string.isRequired,
+  size: PropTypes.shape({
+    width: PropTypes.number,
+    heigth: PropTypes.number,
+  }),
 };
 
 export default Header;
