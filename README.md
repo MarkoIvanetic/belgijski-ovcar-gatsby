@@ -1,6 +1,6 @@
 # Belgijski Ovcar (Gatsby)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e58e4bb1-0e8e-4c8a-8b2f-3c045bb08c1a/deploy-status)](https://app.netlify.com/sites/belgijskiovcar/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/abcaf831-1263-4763-b726-35074f3b5897/deploy-status)](https://app.netlify.com/sites/objective-euclid-682845/deploys)
 
 Modernizing the site
 
