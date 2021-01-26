@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import News from '../components/news';
 import { FormattedMessage } from 'gatsby-plugin-intl';
 
 import { useWindowSize } from '../utils/hooks';
@@ -15,37 +16,42 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className={styles.imageContainer}>
-        {size.width > 720 && (
-          <div>
-            <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
-            <Img className={styles.gridImage} fluid={img_2.fluid} alt={img_2.title} />
+      <div>
+        <News />
+        <div className={styles.root}>
+          <div className={styles.imageContainer}>
+            {size.width > 720 && (
+              <div>
+                <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
+                <Img className={styles.gridImage} fluid={img_2.fluid} alt={img_2.title} />
+              </div>
+            )}
+            {size.width > 1200 && (
+              <div>
+                <Img className={styles.gridImage} fixed={img_3.fixed} alt={img_3.title} />
+                <Img className={styles.gridImage} fixed={img_4.fixed} alt={img_4.title} />
+                <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
+              </div>
+            )}
           </div>
-        )}
-        {size.width > 1200 && (
-          <div>
-            <Img className={styles.gridImage} fixed={img_3.fixed} alt={img_3.title} />
-            <Img className={styles.gridImage} fixed={img_4.fixed} alt={img_4.title} />
-            <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
+          <div className={styles.articleContainer}>
+            <h3>
+              <FormattedMessage id="home_h5" />
+            </h3>
+            <div>
+              {size.width <= 720 && <Img className={`${styles.gridImage} wrapped-image`} fixed={img_3.fixed} alt={img_3.title} />}
+              <p>
+                <FormattedMessage id="home_p1" />
+              </p>
+            </div>
+            <p>
+              <FormattedMessage id="home_p2" />
+            </p>
+            <p>
+              <FormattedMessage id="home_p3" />
+            </p>
           </div>
-        )}
-      </div>
-      <div className={styles.articleContainer}>
-        <h3>
-          <FormattedMessage id="home_h5" />
-        </h3>
-        <div>
-          {size.width <= 720 && <Img className={`${styles.gridImage} wrapped-image`} fixed={img_3.fixed} alt={img_3.title} />}
-          <p>
-            <FormattedMessage id="home_p1" />
-          </p>
         </div>
-        <p>
-          <FormattedMessage id="home_p2" />
-        </p>
-        <p>
-          <FormattedMessage id="home_p3" />
-        </p>
       </div>
     </Layout>
   );
@@ -109,31 +115,5 @@ export const query = graphql`
     }
   }
 `;
-
-// export const query = graphql`
-// query IndexPagePhotosQuery {
-//   allContentfulAsset(filter: {title: {regex: "/^nikola \\d/"}}, sort: {fields: title}) {
-//     nodes {
-//       fixed(width: 275) {
-//         base64
-//         width
-//         height
-//         src
-//         srcSet
-//       }
-//       title
-//     }
-//   }
-// }
-// `;
-
-// export const query = graphql`
-// contentfulAsset(title: { eq: "nikola 0"}}) {
-//   title
-//   sizes(quality: 100) {
-//     ...GatsbyContentfulSizes_withWebp
-//   }
-// }
-// `;
 
 export default IndexPage;

@@ -4,7 +4,7 @@ import { injectIntl } from 'gatsby-plugin-intl';
 
 import { useWindowSize } from '../utils/hooks';
 import styles from './style/layout.module.scss';
-import News from './news';
+
 import Header from './header';
 import Footer from './footer';
 import SEO from './seo';
@@ -19,7 +19,6 @@ const Layout = ({ children, intl }) => {
         siteTitle={intl.formatMessage({ id: 'metadata_title' })}
         siteSubtitle={intl.formatMessage({ id: 'metadata_subtitle' })}
       />
-      <News />
       <main className={styles.main}>{children}</main>
       <Footer />
     </div>

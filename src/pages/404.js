@@ -4,32 +4,37 @@ import { FormattedMessage } from 'gatsby-plugin-intl';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
+import styles from '../styles/404.module.scss';
 
 const NotFoundPage = ({ data }) => {
   const image = data.contentfulAsset;
   return (
     <Layout>
-      <Img fluid={image.fluid} alt={image.title} />
-      <h1>
-        <FormattedMessage id="404_title" />
-      </h1>
-      <p>
-        <FormattedMessage id="404_subtitle" />
-      </p>
+      <div className={styles.root}>
+        <div>
+          <Img fixed={image.fixed} alt={image.title} />
+        </div>
+        <h1>
+          <FormattedMessage id="404_title" />
+        </h1>
+        <p>
+          <FormattedMessage id="404_subtitle" />
+        </p>
+      </div>
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    contentfulAsset(file: { fileName: { eq: "404.png" } }) {
+    contentfulAsset(title: { eq: "404" }) {
       title
-      fluid(maxWidth: 700) {
+      fixed(width: 700) {
         base64
-        aspectRatio
+        width
+        height
         src
         srcSet
-        sizes
       }
     }
   }

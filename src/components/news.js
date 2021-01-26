@@ -19,11 +19,13 @@ const News = ({ children, intl }) => {
     }
   `);
 
-  return <IntlContextConsumer>{({ language: currentLocale }) => <div>{currentLocale}</div>}</IntlContextConsumer>;
+  return <IntlContextConsumer>{({ language: currentLocale }) => <div>{'currentLocale'}</div>}</IntlContextConsumer>;
 };
 
 News.propTypes = {
-  children: PropTypes.node.isRequired,
+  data: PropTypes.shape({
+    file: PropTypes.object,
+  }),
   intl: PropTypes.shape({
     locale: PropTypes.string,
     formatMessage: PropTypes.func,
