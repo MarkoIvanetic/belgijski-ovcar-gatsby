@@ -53,3 +53,4 @@ TBA
 - 404
 - siteMetadata -> site info
 - check site image
+- browser support
