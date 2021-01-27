@@ -53,4 +53,4 @@ TBA
 - 404
 - siteMetadata -> site info, update live site
 - check site image
-- browser support
+- browser support - https://www.npmjs.com/package/detect-browser
