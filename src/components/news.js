@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { IntlContextConsumer } from 'gatsby-plugin-intl';
+import styles from './style/news.module.scss';
 
 const News = ({ children, intl }) => {
   const data = useStaticQuery(graphql`
@@ -19,10 +20,22 @@ const News = ({ children, intl }) => {
     }
   `);
 
-  return <IntlContextConsumer>{({ language: currentLocale }) => <div>{'currentLocale'}</div>}</IntlContextConsumer>;
+  return (
+    <IntlContextConsumer>
+      {({ language: currentLocale }) => {
+        return (
+          <>
+            <div className={styles.root}>{'currentLocale'}</div>
+            <hr />
+          </>
+        );
+      }}
+    </IntlContextConsumer>
+  );
 };
 
 News.propTypes = {
+  children: PropTypes.object,
   data: PropTypes.shape({
     file: PropTypes.object,
   }),

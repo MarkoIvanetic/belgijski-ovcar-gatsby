@@ -1,5 +1,8 @@
 .root {
   display: flex;
+  @media only screen and (max-width: 720px) {
+    flex-direction: column;
+  }
 }
 
 .image-container {

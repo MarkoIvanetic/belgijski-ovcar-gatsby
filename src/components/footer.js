@@ -47,7 +47,7 @@ const Footer = () => {
 
       <div>
         <p>Copyright © Belgijski Ovčar 2015-{new Date().getFullYear()}</p>
-        <div>
+        <div className={styles.social}>
           <a href="https://www.facebook.com/nikola.paulic.520" target="_blank" rel="noopener noreferrer">
             <Img fixed={facebook.childImageSharp.fixed} />
           </a>
