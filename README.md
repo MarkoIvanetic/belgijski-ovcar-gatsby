@@ -51,6 +51,6 @@ TBA
 - typography prune
 - check style files
 - 404
-- siteMetadata -> site info
+- siteMetadata -> site info, update live site
 - check site image
 - browser support

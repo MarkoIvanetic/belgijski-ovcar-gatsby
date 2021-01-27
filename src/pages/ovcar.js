@@ -8,7 +8,7 @@ import { FormattedMessage } from 'gatsby-plugin-intl';
 
 import { useWindowSize } from '../utils/hooks';
 import Layout from '../components/layout';
-import styles from '../styles/index.module.scss';
+import styles from '../styles/ovcar.module.scss';
 
 const Ovcar = ({ data }) => {
   const size = useWindowSize();

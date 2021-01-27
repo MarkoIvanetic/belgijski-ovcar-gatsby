@@ -1,19 +1,56 @@
 import React from 'react';
-import { FormattedMessage, injectIntl } from 'gatsby-plugin-intl';
-
+import PropTypes from 'prop-types';
+import { FormattedMessage, Link } from 'gatsby-plugin-intl';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import styles from '../styles/404.module.scss';
 
-const NotFoundPage = ({ intl }) => (
-  <Layout>
-    <SEO lang={intl.locale} title={`404: ${intl.formatMessage({ id: 'metadata_title' })}`} />
-    <h1>
-      <FormattedMessage id="metadata_subtitle" />
-    </h1>
-    <p>
-      <FormattedMessage id="metadata_subtitle" />
-    </p>
-  </Layout>
-);
+const NotFoundPage = ({ data }) => {
+  const image = data.contentfulAsset;
+  return (
+    <Layout>
+      <div className={styles.root}>
+        <div>
+          <Img className={styles.banner} fluid={image.fluid} alt={image.title} />
+        </div>
+        <h1>
+          <FormattedMessage id="404_title" />
+        </h1>
+        <p>
+          <FormattedMessage id="404_subtitle" />
+        </p>
+        <p>
+          <Link to="/">
+            <span>
+              <FormattedMessage id="404_home" defaultMessage="Početna" />
+            </span>
+          </Link>
+        </p>
+      </div>
+    </Layout>
+  );
+};
 
-export default injectIntl(NotFoundPage);
+export const query = graphql`
+  {
+    contentfulAsset(title: { eq: "404" }) {
+      title
+      fluid(maxWidth: 700) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
+  }
+`;
+
+NotFoundPage.propTypes = {
+  data: PropTypes.shape({
+    contentfulAsset: PropTypes.object,
+  }),
+};
+
+export default NotFoundPage;
