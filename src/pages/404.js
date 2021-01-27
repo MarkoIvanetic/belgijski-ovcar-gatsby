@@ -23,7 +23,7 @@ const NotFoundPage = ({ data }) => {
         <p>
           <Link to="/">
             <span>
-              <FormattedMessage id="404_home" />
+              <FormattedMessage id="404_home" defaultMessage="Početna" />
             </span>
           </Link>
         </p>
