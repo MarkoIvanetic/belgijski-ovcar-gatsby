@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'gatsby-plugin-intl';
+import { FormattedMessage, Link } from 'gatsby-plugin-intl';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
@@ -12,13 +12,20 @@ const NotFoundPage = ({ data }) => {
     <Layout>
       <div className={styles.root}>
         <div>
-          <Img fixed={image.fixed} alt={image.title} />
+          <Img className={styles.banner} fluid={image.fluid} alt={image.title} />
         </div>
         <h1>
           <FormattedMessage id="404_title" />
         </h1>
         <p>
           <FormattedMessage id="404_subtitle" />
+        </p>
+        <p>
+          <Link to="/">
+            <span>
+              <FormattedMessage id="404_home" />
+            </span>
+          </Link>
         </p>
       </div>
     </Layout>
@@ -29,12 +36,12 @@ export const query = graphql`
   {
     contentfulAsset(title: { eq: "404" }) {
       title
-      fixed(width: 700) {
+      fluid(maxWidth: 700) {
         base64
-        width
-        height
+        aspectRatio
         src
         srcSet
+        sizes
       }
     }
   }
