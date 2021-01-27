@@ -16,7 +16,7 @@ const Ovcar = ({ data }) => {
   return (
     <Layout>
       {size.width > 991 && (
-        <div className={styles.imageContainer}>
+        <div className={styles.imagesContainer}>
           <Img fluid={image.fluid} alt={image.title} />
         </div>
       )}

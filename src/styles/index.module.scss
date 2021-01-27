@@ -5,7 +5,7 @@
   }
 }
 
-.image-container {
+.images-container {
   display: flex;
   flex: 1;
 
@@ -49,4 +49,20 @@
 
 .grid-image {
   margin: 5px;
+}
+
+.image-panel-small {
+  @media only screen and (min-width: 721px) {
+    display: none !important;
+  }
+}
+.image-panel-large {
+  @media only screen and (max-width: 1199px) {
+    display: none !important;
+  }
+}
+.image-panel-mid {
+  @media only screen and (max-width: 721px) {
+    display: none !important;
+  }
 }

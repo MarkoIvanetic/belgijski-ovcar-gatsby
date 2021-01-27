@@ -6,40 +6,36 @@ import Img from 'gatsby-image';
 import News from '../components/news';
 import { FormattedMessage } from 'gatsby-plugin-intl';
 
-import { useWindowSize } from '../utils/hooks';
 import Layout from '../components/layout';
 import styles from '../styles/index.module.scss';
 
 const IndexPage = ({ data }) => {
   const { img_1, img_2, img_3, img_4, img_5 } = data;
-  const size = useWindowSize();
 
   return (
     <Layout>
       <div>
         <News />
         <div className={styles.root}>
-          <div className={styles.imageContainer}>
-            {size.width > 720 && (
-              <div>
-                <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
-                <Img className={styles.gridImage} fluid={img_2.fluid} alt={img_2.title} />
-              </div>
-            )}
-            {size.width > 1200 && (
-              <div>
-                <Img className={styles.gridImage} fixed={img_3.fixed} alt={img_3.title} />
-                <Img className={styles.gridImage} fixed={img_4.fixed} alt={img_4.title} />
-                <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
-              </div>
-            )}
+          <div className={styles.imagesContainer}>
+            <div className={styles.imagePanelMid}>
+              <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
+              <Img className={styles.gridImage} fluid={img_2.fluid} alt={img_2.title} />
+            </div>
+            <div className={styles.imagePanelLarge}>
+              <Img className={styles.gridImage} fixed={img_3.fixed} alt={img_3.title} />
+              <Img className={styles.gridImage} fixed={img_4.fixed} alt={img_4.title} />
+              <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
+            </div>
           </div>
           <div className={styles.articleContainer}>
             <h3>
               <FormattedMessage id="home_h5" />
             </h3>
             <div>
-              {size.width <= 720 && <Img className={`${styles.gridImage} wrapped-image`} fixed={img_3.fixed} alt={img_3.title} />}
+              <div className={styles.imagePanelSmall}>
+                <Img className={`${styles.gridImage} wrapped-image`} fixed={img_3.fixed} alt={img_3.title} />
+              </div>
               <p>
                 <FormattedMessage id="home_p1" />
               </p>
