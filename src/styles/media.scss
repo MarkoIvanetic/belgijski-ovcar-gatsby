@@ -1,8 +1,13 @@
+$size-xs: 550px;
+$size-sm: 720px;
+$size-md: 992px;
+$size-lg: 1200px;
+
 html {
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: calc(#{$size-md} - 1px)) {
     font-size: 14px;
   }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: $size-md) {
     font-size: 14px;
   }
   @media only screen and (min-width: 1200px) {
@@ -11,7 +16,43 @@ html {
 }
 
 main {
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: $size-xs) {
     flex-direction: column;
+  }
+}
+
+.visible-xs {
+  @media only screen and (min-width: $size-xs) {
+    display: none !important;
+  }
+}
+
+.visible-sm {
+  @media only screen and (max-width: $size-sm) {
+    display: none !important;
+  }
+}
+
+.hidden-sm {
+  @media only screen and (min-width: calc(#{$size-sm} + 1px)) {
+    display: none !important;
+  }
+}
+
+.visible-md {
+  @media only screen and (min-width: $size-md) {
+    display: none !important;
+  }
+}
+
+.hidden-md {
+  @media only screen and (max-width: calc(#{$size-md} - 1px)) {
+    display: none !important;
+  }
+}
+
+.visible-lg {
+  @media only screen and (min-width: $size-lg) {
+    display: none !important;
   }
 }

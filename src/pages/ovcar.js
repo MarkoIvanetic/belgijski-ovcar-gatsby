@@ -6,20 +6,16 @@ import Img from 'gatsby-image';
 
 import { FormattedMessage } from 'gatsby-plugin-intl';
 
-import { useWindowSize } from '../utils/hooks';
 import Layout from '../components/layout';
 import styles from '../styles/ovcar.module.scss';
 
 const Ovcar = ({ data }) => {
-  const size = useWindowSize();
   const image = data.contentfulAsset;
   return (
     <Layout>
-      {size.width > 991 && (
-        <div className={styles.imagesContainer}>
-          <Img fluid={image.fluid} alt={image.title} />
-        </div>
-      )}
+      <div className={`${styles.imagesContainer} hidden-md`}>
+        <Img fluid={image.fluid} alt={image.title} />
+      </div>
 
       <div className={styles.articleContainer}>
         <h3>
@@ -30,7 +26,9 @@ const Ovcar = ({ data }) => {
         </p>
         <div>
           <p>
-            {size.width <= 991 && <Img fixed={image.fixed} alt={image.title} />}
+            <div className={styles.articleImage}>
+              <Img fixed={image.fixed} alt={image.title} />
+            </div>
             <FormattedMessage id="ovcar_p2" />
           </p>
         </div>
