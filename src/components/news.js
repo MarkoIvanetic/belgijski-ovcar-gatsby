@@ -8,14 +8,13 @@ import Gallery from './gallery/gallery';
 const SingleNews = ({ images, title, body }) => {
   return (
     <>
-      <div className={styles.root}>
+      <div className={styles.news}>
         <h3>
           <b>{title}</b>
         </h3>
         <p>{body}</p>
-        <Gallery images={images} title={''} />
+        <Gallery images={images} title={''} thumbSize={'200px'} />
       </div>
-      <hr />
     </>
   );
 };
@@ -27,7 +26,7 @@ const News = ({ children, intl }) => {
         nodes {
           id
           slike {
-            thumb: fluid(maxWidth: 220, maxHeight: 220) {
+            thumb: fluid(maxWidth: 200, maxHeight: 200) {
               base64
               aspectRatio
               src
@@ -64,18 +63,21 @@ const News = ({ children, intl }) => {
   // const slike = data.contentfulObavijest.slike;
   // const title = data.contentfulObavijest[`title_${intl.locale}`];
   // const body = data.contentfulObavijest[`body_${intl.locale}`];
-
-  return news.map((singleNews) => {
-    const id = singleNews.id;
-    const slike = singleNews.slike;
-    const title = singleNews[`title_${intl.locale}`];
-    const body = singleNews[`body_${intl.locale}`][`body_${intl.locale}`];
-    console.log(slike);
-    console.log(title);
-    console.log(body);
-    // return <SingleNews key={id} images={'slike'} title={'title'} body={'body'} />;
-    return <SingleNews key={id} images={slike} title={title} body={body} />;
-  });
+  return (
+    <div className={`${styles.root} shadow-md`}>
+      {news.map((singleNews) => {
+        const id = singleNews.id;
+        const slike = singleNews.slike;
+        const title = singleNews[`title_${intl.locale}`];
+        const body = singleNews[`body_${intl.locale}`][`body_${intl.locale}`];
+        console.log(slike);
+        console.log(title);
+        console.log(body);
+        // return <SingleNews key={id} images={'slike'} title={'title'} body={'body'} />;
+        return <SingleNews key={id} images={slike} title={title} body={body} />;
+      })}
+    </div>
+  );
 };
 
 News.propTypes = {

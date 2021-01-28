@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div>
         <News />
-        <div className={styles.root}>
+        <div className={`${styles.root} shadow-md`}>
           <div className={styles.imagesContainer}>
             <div className={styles.imagePanelMid}>
               <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
