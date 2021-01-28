@@ -41,7 +41,10 @@ TBA
 ## TODO
 
 - change link color
-- source contact data from contentful
+
+- check mobile nav animation
+- showFromRight - remove or use
+
 - make footer sticky
 - footer seo
 - responsive check

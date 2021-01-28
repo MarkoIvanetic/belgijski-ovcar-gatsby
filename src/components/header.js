@@ -39,6 +39,22 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
 
   const { screen, mobile } = data.file.childImageSharp;
 
+  {
+    transform: showMenu ? 'translateX(0)' : 'translateX(100%)';
+  }
+
+  const navStyle = useMemo(() => {
+    if (showMenu) {
+      return {
+        transform: 'translateX(0)',
+      };
+    }
+    return {
+      transform: 'translateX(100)',
+      display: 'none',
+    };
+  }, [showMenu]);
+
   return (
     <header className={styles.root}>
       <div className={styles.header}>
@@ -73,7 +89,7 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
             </Link>
           </div>
 
-          <Navigation mobile={true} listStyle={{ transform: showMenu ? 'translateX(0)' : 'translateX(100%)' }}>
+          <Navigation mobile={true} listStyle={navStyle}>
             <Language />
           </Navigation>
 

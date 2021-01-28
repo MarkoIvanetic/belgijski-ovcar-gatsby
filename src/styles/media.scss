@@ -56,3 +56,23 @@ main {
     display: none !important;
   }
 }
+
+.nav-visible {
+  animation: showFromRight 0.5s linear forwards; /* IE 10+, Fx 29+ */
+}
+
+.nav-hidden {
+  animation: showFromRight 0.5s linear backwards; /* IE 10+, Fx 29+ */
+}
+
+@keyframes showFromRight {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateX(100);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -24,9 +24,8 @@ export default function Galerije({ data }) {
       <div>
         {galleries.map(({ id, title, thumbAlt, images }, i) => {
           return (
-            <div key={id}>
+            <div key={id} className="callout-left">
               <Gallery images={images} title={title} />
-              <hr />
             </div>
           );
         })}

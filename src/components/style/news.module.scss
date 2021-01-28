@@ -1,7 +1,18 @@
 .root {
-  border-left: 0.3rem solid var(--dark-green);
-  padding: 0px 5px;
-  margin-bottom: 2rem;
+  // padding: 1.25rem;
+  // margin-bottom: 1.25rem;
+  // border: 1px solid #e9ecef;
+  // border-left-width: 0.25rem;
+  // border-radius: 0.25rem;
+  // border-left-color: #10b981;
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
 }
 
 .news {

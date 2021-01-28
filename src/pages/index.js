@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
               <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
             </div>
           </div>
-          <div className={styles.articleContainer}>
+          <div className={`${styles.articleContainer} callout-right`}>
             <h3>
               <FormattedMessage id="home_h5" />
             </h3>

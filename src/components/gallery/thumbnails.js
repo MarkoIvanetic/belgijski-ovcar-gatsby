@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styles from '../style/gallery.module.scss';
 
 const ThumbGrid = ({ images, thumbSize, colWidth, gutter, imgClass, handleOpen }) => {
+  const wrapStyle = useMemo(() => {
+    return thumbSize ? { minWidth: thumbSize } : {};
+  }, [thumbSize]);
+
   return (
     <div className={styles.imageRow}>
       {images.map(({ id, title, thumb, thumbAlt }, thumbIndex) => {
         return (
           <div
             className={styles.imageWrap}
-            style={{ minWidth: thumbSize || '250px' }}
+            style={wrapStyle}
             width={colWidth}
             key={id}
             onClick={() => {
@@ -43,5 +47,9 @@ ThumbGrid.propTypes = {
   gutter: PropTypes.string,
   imgClass: PropTypes.string,
 };
+
+// ThumbGrid.defaultProps = {
+//   thumbSize: '250px',
+// };
 
 export default ThumbGrid;

@@ -67,7 +67,7 @@ const News = ({ children, intl }) => {
   `);
   const { nodes: news } = data.allContentfulObavijest;
   return (
-    <div className={`${styles.root} shadow-md`}>
+    <div className={`${styles.root} shadow-md callout-left`}>
       {news.map((singleNews) => {
         const id = singleNews.id;
         const slike = singleNews.slike;
