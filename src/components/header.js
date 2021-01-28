@@ -20,6 +20,8 @@ const MenuIcon = ({ onToggleMenu }) => (
 );
 
 const Header = ({ size, siteTitle, siteSubtitle }) => {
+  const [showMenu, setShowMenu] = useState(false);
+
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "dogbanner.png" }) {
@@ -37,71 +39,51 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
 
   const { screen, mobile } = data.file.childImageSharp;
 
-  const headerProps = {
-    styles,
-    logo: { screen, mobile },
-    size,
-    siteTitle,
-    siteSubtitle,
-  };
-
-  const headerComp = useMemo(() => {
-    return size.width > 550 ? <DesktopHeader {...headerProps} /> : <MobileHeader {...headerProps} />;
-  }, [size.width]);
-
-  return headerComp;
-};
-
-const DesktopHeader = ({ size, styles, logo, siteTitle, siteSubtitle }) => {
   return (
     <header className={styles.root}>
       <div className={styles.header}>
-        <div className={styles.logo}>
-          <Link to="/">
-            <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={logo.screen} />
-          </Link>
+        <div>
+          <div className={styles.logo}>
+            <Link to="/">
+              <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={screen} />
+            </Link>
+          </div>
+          <div className={styles.title}>
+            <Link to="/">
+              <h1>{siteTitle}</h1>
+              <h2>{siteSubtitle}</h2>
+            </Link>
+          </div>
         </div>
-        <div className={styles.title}>
-          <Link to="/">
-            <h1>{siteTitle}</h1>
-            <h2>{siteSubtitle}</h2>
-          </Link>
-        </div>
-      </div>
-      <Language />
-      <Navigation />
-    </header>
-  );
-};
-
-const MobileHeader = ({ size, styles, logo, siteTitle, siteSubtitle }) => {
-  const [showMenu, setShowMenu] = useState(false);
-
-  return (
-    <header className={styles.rootMobile}>
-      <div className={styles.headerMobile}>
-        <div className={styles.logo}>
-          <Link to="/">
-            <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={logo.mobile} />
-          </Link>
-        </div>
-        <div className={styles.titleMobile}>
-          <Link to="/">
-            <h1>{siteTitle}</h1>
-            <h2>{siteSubtitle}</h2>
-          </Link>
-        </div>
-      </div>
-
-      <Navigation mobile={true} listStyle={{ transform: showMenu ? 'translateX(0)' : 'translateX(100%)' }}>
         <Language />
-      </Navigation>
+        <Navigation />
+      </div>
 
-      <MenuIcon
-        onToggleMenu={() => {
-          setShowMenu(!showMenu);
-        }}
-      />
+      <div className={styles.headerMobile}>
+        <div>
+          <div className={styles.logo}>
+            <Link to="/">
+              <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={mobile} />
+            </Link>
+          </div>
+          <div className={styles.titleMobile}>
+            <Link to="/">
+              <h1>{siteTitle}</h1>
+              <h2>{siteSubtitle}</h2>
+            </Link>
+          </div>
+
+          <Navigation mobile={true} listStyle={{ transform: showMenu ? 'translateX(0)' : 'translateX(100%)' }}>
+            <Language />
+          </Navigation>
+
+          <MenuIcon
+            onToggleMenu={() => {
+              setShowMenu(!showMenu);
+            }}
+          />
+        </div>
+      </div>
     </header>
   );
 };
@@ -111,17 +93,6 @@ MenuIcon.propTypes = {
 };
 
 Header.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
-  siteSubtitle: PropTypes.string.isRequired,
-  size: PropTypes.shape({
-    width: PropTypes.number,
-    heigth: PropTypes.number,
-  }),
-};
-
-DesktopHeader.propTypes = MobileHeader.propTypes = {
-  styles: PropTypes.object.isRequired,
-  logo: PropTypes.object.isRequired,
   siteTitle: PropTypes.string.isRequired,
   siteSubtitle: PropTypes.string.isRequired,
   size: PropTypes.shape({

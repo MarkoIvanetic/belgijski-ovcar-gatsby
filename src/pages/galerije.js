@@ -24,10 +24,10 @@ export default function Galerije({ data }) {
       <div>
         {galleries.map(({ id, title, thumbAlt, images }, i) => {
           return (
-            <>
-              <Gallery key={id} images={images} title={title} />
+            <div key={id}>
+              <Gallery images={images} title={title} />
               <hr />
-            </>
+            </div>
           );
         })}
       </div>

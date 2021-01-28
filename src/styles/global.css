@@ -2,7 +2,8 @@
   --dark: #373740;
   --gray: #717171;
   --gray-light: #ccc;
-  --main-green: #4aab87;
+  --main-green: #d5ebda;
+  --dark-green: #8cbf98;
   --blue: #00b;
 }
 
@@ -42,4 +43,12 @@ body {
 main {
   min-height: 50vh;
   margin-bottom: 2.5rem;
+}
+
+hr {
+  background: var(--gray);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
 }

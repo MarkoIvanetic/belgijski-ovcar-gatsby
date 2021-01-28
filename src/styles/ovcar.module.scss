@@ -1,4 +1,4 @@
-.image-container {
+.images-container {
   display: flex;
   flex: 1;
 
@@ -37,6 +37,12 @@
     @media only screen and (max-width: 720px) {
       margin-bottom: 1rem;
     }
+  }
+}
+
+.article-image {
+  @media only screen and (min-width: 992px) {
+    display: none !important;
   }
 }
 

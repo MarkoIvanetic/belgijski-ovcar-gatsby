@@ -1,5 +1,14 @@
 .root {
-  margin-bottom: 1rem;
+  border-left: 0.3rem solid var(--dark-green);
+  padding: 0px 5px;
+  margin-bottom: 2rem;
+}
+
+.news {
+  &:not(:first-of-type) {
+    margin-bottom: 0.5rem;
+  }
+
   @media only screen and (max-width: 720px) {
     padding: 0px 10px;
   }
