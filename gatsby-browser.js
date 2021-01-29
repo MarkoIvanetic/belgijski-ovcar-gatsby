@@ -28,12 +28,7 @@ const addLink = (href, rel = 'stylesheet') => {
 export const onClientEntry = () => {
   window.onload = () => {
     // addScript('https://fast.wistia.com/embed/medias/9rvl8vgrzg.jsonp');
-<<<<<<< HEAD
     // addLink('https://fonts.gstatic.com', 'preconnect');
     // addLink('https://fonts.googleapis.com/css2?family=Crimson+Text&family=IBM+Plex+Sans&family=Source+Serif+Pro&display=swap');
-=======
-    addLink('https://fonts.gstatic.com', 'preconnect');
-    addLink('https://fonts.googleapis.com/css2?family=Crimson+Text&family=IBM+Plex+Sans&family=Source+Serif+Pro&display=swap');
->>>>>>> master
   };
 };

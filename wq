@@ -1,0 +1,18 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex c9045e0..47d5cb7 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,6 +1,6 @@[m
+ # Belgijski Ovcar (Gatsby)[m
+ [m
+[31m-[![Netlify Status](https://api.netlify.com/api/v1/badges/abcaf831-1263-4763-b726-35074f3b5897/deploy-status)](https://app.netlify.com/sites/objective-euclid-682845/deploys)[m
+[32m+[m[32m[![Netlify Status](https://api.netlify.com/api/v1/badges/e58e4bb1-0e8e-4c8a-8b2f-3c045bb08c1a/deploy-status)](https://app.netlify.com/sites/belgijskiovcar/deploys)[m
+ [m
+ Modernizing the site[m
+ [m
+[36m@@ -52,5 +52,4 @@[m [mTBA[m
+ - seo image alt, link props[m
+ - siteMetadata -> site info, update live site[m
+ - check site image[m
+[31m-- browser support - https://www.npmjs.com/package/detect-browser[m
+ - news param validation - different news version based on populated cont. fields[m
