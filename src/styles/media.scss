@@ -4,6 +4,13 @@ $size-md: 992px;
 $size-lg: 1200px;
 
 html {
+  .nav-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.3s;
+    transition-timing-function: linear;
+  }
+
   @media only screen and (max-width: calc(#{$size-md} - 1px)) {
     font-size: 14px;
   }
@@ -54,25 +61,5 @@ main {
 .visible-lg {
   @media only screen and (min-width: $size-lg) {
     display: none !important;
-  }
-}
-
-.nav-visible {
-  animation: showFromRight 0.5s linear forwards; /* IE 10+, Fx 29+ */
-}
-
-.nav-hidden {
-  animation: showFromRight 0.5s linear backwards; /* IE 10+, Fx 29+ */
-}
-
-@keyframes showFromRight {
-  0% {
-    opacity: 0;
-    display: none;
-    transform: translateX(100);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
   }
 }

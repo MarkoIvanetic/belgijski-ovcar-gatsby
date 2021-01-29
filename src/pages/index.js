@@ -11,15 +11,12 @@ import styles from '../styles/index.module.scss';
 
 const IndexPage = ({ data }) => {
   const { img_1, img_2, img_3, img_4, img_5 } = data;
-<<<<<<< HEAD
 
-=======
->>>>>>> master
   return (
     <Layout>
       <div>
         <News />
-        <div className={`${styles.root} shadow-md`}>
+        <div className={`${styles.root}`}>
           <div className={styles.imagesContainer}>
             <div className={styles.imagePanelMid}>
               <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />

@@ -44,15 +44,10 @@ body {
 main {
   min-height: 50vh;
   margin-bottom: 2.5rem;
-<<<<<<< HEAD
 }
 
 hr {
   background: var(--gray);
-}
-
-.shadow-md {
-  /* box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%); */
 }
 
 .callout-left {
@@ -62,6 +57,7 @@ hr {
   border-left-width: 0.25rem;
   border-radius: 0.25rem;
   border-left-color: #10b981;
+  background-color: rgba(254, 254, 254);
 }
 
 .callout-right {
@@ -71,6 +67,4 @@ hr {
   border-right-width: 0.25rem;
   border-radius: 0.25rem;
   border-right-color: #10b981;
-=======
->>>>>>> master
 }

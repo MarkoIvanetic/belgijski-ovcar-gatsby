@@ -19,7 +19,6 @@
     }
     & > a[aria-current] {
       border-bottom: 2px solid var(--gray);
-<<<<<<< HEAD
     }
   }
 }
@@ -35,6 +34,10 @@
   width: 100%;
   top: 67px;
   z-index: 1;
+  // transition
+  opacity: 0;
+  transform: translateX(450px);
+  transition: 0.3s;
 
   & > li {
     text-transform: uppercase;
@@ -46,8 +49,6 @@
     }
     & > a[aria-current] {
       border: 1px solid white;
-=======
->>>>>>> master
     }
   }
 }

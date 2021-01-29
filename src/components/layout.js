@@ -10,10 +10,7 @@ import Footer from './footer';
 import SEO from './seo';
 
 const Layout = ({ children, intl }) => {
-<<<<<<< HEAD
   const size = useWindowSize();
-=======
->>>>>>> master
   return (
     <div className={styles.root}>
       <SEO lang={intl.locale} />
