@@ -8,6 +8,11 @@ import styles from './style/footer.module.scss';
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query SocialQuery {
+      contentfulContact {
+        email
+        phone
+        address
+      }
       youtube: file(relativePath: { eq: "icons/youtube.png" }) {
         childImageSharp {
           fixed(width: 24, height: 24) {
@@ -25,7 +30,11 @@ const Footer = () => {
     }
   `);
 
-  const { youtube, facebook } = data;
+  const {
+    youtube,
+    facebook,
+    contentfulContact: { email, phone, address },
+  } = data;
 
   return (
     <footer className={styles.root}>
@@ -34,14 +43,15 @@ const Footer = () => {
           <strong>
             <FormattedMessage id="metadata_address" />:
           </strong>
-          Ilovnjak 30, 10410 Velika Gorica
+          {address}
         </p>
         <p>
-          <strong>tel:</strong>098/1744-194
+          <strong>tel:</strong>
+          {phone}
         </p>
         <p>
           <strong>email:</strong>
-          <a href="mailto: nikolapaulic4@gmail.com">nikolapaulic4@gmail.com</a>
+          <a href={`mailto: ${email}`}>{email}</a>
         </p>
       </div>
 

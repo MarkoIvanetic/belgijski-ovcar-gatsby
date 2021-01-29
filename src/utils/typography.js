@@ -5,26 +5,6 @@ const typography = new Typography({
   baseFontSize: '16px',
   baseLineHeight: '1.45',
   includeNormalize: false,
-  // googleFonts: [
-  //   {
-  //     name: 'Crimson Text',
-  //     styles: ['400'],
-  //     subsets: ['latin-ext', 'latin'],
-  //   },
-  //   {
-  //     name: 'Source Serif Pro',
-  //     styles: ['600'],
-  //     // subsets: ['latin-ext'],
-  //   },
-  //   {
-  //     name: 'Open Sans',
-  //     styles: ['400', '400i', '700'],
-  //     // subsets: ['latin-ext'],
-  //   },
-  // ],
-  // headerFontFamily: ['Source Serif Pro', 'sans-serif'],
-  // bodyFontFamily: ['Crimson Text', 'sans-serif'],
-  // bodyFontFamily: ['Open Sans', 'sans-serif'],
   overrideStyles: ({}, options) => ({
     a: {
       textDecoration: 'none',

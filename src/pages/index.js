@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div>
         <News />
-        <div className={`${styles.root} shadow-md`}>
+        <div className={`${styles.root}`}>
           <div className={styles.imagesContainer}>
             <div className={styles.imagePanelMid}>
               <Img className={styles.gridImage} fluid={img_1.fluid} alt={img_1.title} />
@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
               <Img className={styles.gridImage} fixed={img_5.fixed} alt={img_5.title} />
             </div>
           </div>
-          <div className={styles.articleContainer}>
+          <div className={`${styles.articleContainer} callout-right`}>
             <h3>
               <FormattedMessage id="home_h5" />
             </h3>

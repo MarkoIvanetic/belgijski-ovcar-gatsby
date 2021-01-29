@@ -41,16 +41,16 @@ TBA
 ## TODO
 
 - change link color
-- source contact data from contentful
+
+- check mobile nav animation
+- showFromRight - remove or use
+
 - make footer sticky
 - footer seo
-- gallery grid responsive
-- styles/style organization
+- responsive check
 - seo, helmet, titles
 - seo image alt, link props
-- typography prune
-- check style files
-- 404
 - siteMetadata -> site info, update live site
 - check site image
 - browser support - https://www.npmjs.com/package/detect-browser
+- news param validation - different news version based on populated cont. fields

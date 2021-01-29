@@ -4,6 +4,13 @@ $size-md: 992px;
 $size-lg: 1200px;
 
 html {
+  .nav-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.3s;
+    transition-timing-function: linear;
+  }
+
   @media only screen and (max-width: calc(#{$size-md} - 1px)) {
     font-size: 14px;
   }

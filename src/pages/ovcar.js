@@ -17,7 +17,7 @@ const Ovcar = ({ data }) => {
         <Img fluid={image.fluid} alt={image.title} />
       </div>
 
-      <div className={`${styles.articleContainer} shadow-md`}>
+      <div className={`${styles.articleContainer} callout-right`}>
         <h3>
           <FormattedMessage id="ovcar_h5" />
         </h3>

@@ -19,6 +19,12 @@ const SingleNews = ({ images, title, body }) => {
   );
 };
 
+SingleNews.propTypes = {
+  images: PropTypes.array,
+  title: PropTypes.string,
+  body: PropTypes.string,
+};
+
 const News = ({ children, intl }) => {
   const data = useStaticQuery(graphql`
     {
@@ -60,20 +66,13 @@ const News = ({ children, intl }) => {
     }
   `);
   const { nodes: news } = data.allContentfulObavijest;
-  // const slike = data.contentfulObavijest.slike;
-  // const title = data.contentfulObavijest[`title_${intl.locale}`];
-  // const body = data.contentfulObavijest[`body_${intl.locale}`];
   return (
-    <div className={`${styles.root} shadow-md`}>
+    <div className={`${styles.root} shadow-md callout-left`}>
       {news.map((singleNews) => {
         const id = singleNews.id;
         const slike = singleNews.slike;
         const title = singleNews[`title_${intl.locale}`];
         const body = singleNews[`body_${intl.locale}`][`body_${intl.locale}`];
-        console.log(slike);
-        console.log(title);
-        console.log(body);
-        // return <SingleNews key={id} images={'slike'} title={'title'} body={'body'} />;
         return <SingleNews key={id} images={slike} title={title} body={body} />;
       })}
     </div>

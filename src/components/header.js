@@ -39,6 +39,12 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
 
   const { screen, mobile } = data.file.childImageSharp;
 
+  {
+    transform: showMenu ? 'translateX(0)' : 'translateX(100%)';
+  }
+
+  const navClass = showMenu ? 'nav-visible' : '';
+
   return (
     <header className={styles.root}>
       <div className={styles.header}>
@@ -73,7 +79,8 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
             </Link>
           </div>
 
-          <Navigation mobile={true} listStyle={{ transform: showMenu ? 'translateX(0)' : 'translateX(100%)' }}>
+          {/* <Navigation mobile={true} listStyle={navStyle}> */}
+          <Navigation mobile={true} className={navClass}>
             <Language />
           </Navigation>
 
