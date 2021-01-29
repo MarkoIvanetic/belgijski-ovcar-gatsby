@@ -6,7 +6,8 @@ $size-lg: 1200px;
 html {
   .nav-visible {
     opacity: 1;
-    transform: translateX(0);
+    // transform: translateX(0);
+    width: 100%;
     transition: 0.3s;
     transition-timing-function: linear;
   }

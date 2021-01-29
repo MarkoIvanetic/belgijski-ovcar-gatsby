@@ -13,7 +13,7 @@ const SingleNews = ({ images, title, body }) => {
           <b>{title}</b>
         </h3>
         <p>{body}</p>
-        <Gallery images={images} title={''} thumbSize={'200px'} />
+        <Gallery images={images} title={''} />
       </div>
     </>
   );

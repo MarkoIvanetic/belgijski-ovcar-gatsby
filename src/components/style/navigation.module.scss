@@ -29,14 +29,15 @@
   padding: 5px;
   font-size: 1rem;
   position: absolute;
+  right: 0;
   background: white;
   border-bottom: 1px solid black;
-  width: 100%;
   top: 67px;
   z-index: 1;
   // transition
   opacity: 0;
-  transform: translateX(450px);
+  // transform: translateX(450px);
+  width: 0%;
   transition: 0.3s;
 
   & > li {
