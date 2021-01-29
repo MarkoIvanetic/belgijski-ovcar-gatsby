@@ -34,6 +34,10 @@
   width: 100%;
   top: 67px;
   z-index: 1;
+  // transition
+  opacity: 0;
+  transform: translateX(450px);
+  transition: 0.3s;
 
   & > li {
     text-transform: uppercase;

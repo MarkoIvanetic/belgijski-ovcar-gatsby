@@ -55,6 +55,8 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
     };
   }, [showMenu]);
 
+  const navClass = showMenu ? 'nav-visible' : '';
+
   return (
     <header className={styles.root}>
       <div className={styles.header}>
@@ -89,7 +91,8 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
             </Link>
           </div>
 
-          <Navigation mobile={true} listStyle={navStyle}>
+          {/* <Navigation mobile={true} listStyle={navStyle}> */}
+          <Navigation mobile={true} className={navClass}>
             <Language />
           </Navigation>
 
