@@ -13,10 +13,16 @@ const ListLink = ({ to, children }) => {
   );
 };
 
+<<<<<<< HEAD
 export const Navigation = ({ children, mobile, className, listStyle }) => {
   return (
     <ul role="navigation" className={`${className} ${mobile ? styles.mobileList : styles.list}`} style={listStyle}>
       {children && <li>{children}</li>}
+=======
+export const Navigation = (props) => {
+  return (
+    <ul role="navigation" className={styles.list}>
+>>>>>>> master
       <ListLink to="/">
         <FormattedMessage id="nav_0" />
       </ListLink>
@@ -37,6 +43,7 @@ ListLink.propTypes = {
   to: PropTypes.string.isRequired,
   children: PropTypes.object,
 };
+<<<<<<< HEAD
 
 Navigation.propTypes = {
   children: PropTypes.object,
@@ -44,3 +51,5 @@ Navigation.propTypes = {
   listStyle: PropTypes.object,
   mobile: PropTypes.bool,
 };
+=======
+>>>>>>> master

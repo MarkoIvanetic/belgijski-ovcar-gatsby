@@ -44,6 +44,7 @@ body {
 main {
   min-height: 50vh;
   margin-bottom: 2.5rem;
+<<<<<<< HEAD
 }
 
 hr {
@@ -71,4 +72,6 @@ hr {
   border-right-width: 0.25rem;
   border-radius: 0.25rem;
   border-right-color: #10b981;
+=======
+>>>>>>> master
 }

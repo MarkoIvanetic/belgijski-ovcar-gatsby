@@ -11,7 +11,10 @@ import styles from '../styles/index.module.scss';
 
 const IndexPage = ({ data }) => {
   const { img_1, img_2, img_3, img_4, img_5 } = data;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
   return (
     <Layout>
       <div>
