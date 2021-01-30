@@ -51,7 +51,7 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
         <div>
           <div className={styles.logo}>
             <Link to="/">
-              <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={screen} />
+              <Img style={{ margin: '10px 10px 0px 0px' }} alt="logo" loading="eager" fixed={screen} />
             </Link>
           </div>
           <div className={styles.title}>
@@ -69,7 +69,7 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
         <div>
           <div className={styles.logo}>
             <Link to="/">
-              <Img style={{ margin: '10px 10px 0px 0px' }} loading="eager" fixed={mobile} />
+              <Img style={{ margin: '10px 10px 0px 0px' }} alt="logo" loading="eager" fixed={mobile} />
             </Link>
           </div>
           <div className={styles.titleMobile}>

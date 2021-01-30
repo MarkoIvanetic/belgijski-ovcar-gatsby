@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
   const { img_1, img_2, img_3, img_4, img_5 } = data;
 
   return (
-    <Layout>
+    <Layout location="nav_0">
       <div>
         <News />
         <div className={`${styles.root}`}>

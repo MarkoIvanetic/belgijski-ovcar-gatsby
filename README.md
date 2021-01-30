@@ -35,16 +35,3 @@ Once you've setup a static site that pulls in your content during the build proc
 
 - site must already be deployed to Netlify
 - must be configured for CD via a linked Git repo hosted with a Git provider
-
-TBA
-
-## TODO
-
-- make footer sticky
-- footer seo
-- responsive check
-- seo, helmet, titles
-- seo image alt, link props
-- siteMetadata -> site info, update live site
-- check site image
-- news param validation - different news version based on populated cont. fields

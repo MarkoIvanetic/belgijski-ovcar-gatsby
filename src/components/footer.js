@@ -36,33 +36,43 @@ const Footer = () => {
     contentfulContact: { email, phone, address },
   } = data;
 
+  const [street, region] = address.split(',');
+
   return (
-    <footer className={styles.root}>
+    <footer className={styles.root} itemScope itemType="https://schema.org/LocalBusiness">
       <div>
-        <p>
+        <p itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
           <strong>
             <FormattedMessage id="metadata_address" />:
           </strong>
-          {address}
+          <span itemProp="streetAddress">{street},</span>
+          <span itemProp="addressLocality">{region}</span>
         </p>
         <p>
           <strong>tel:</strong>
-          {phone}
+          <span itemProp="telephone">{phone}</span>
         </p>
         <p>
           <strong>email:</strong>
           <a href={`mailto: ${email}`}>{email}</a>
         </p>
+        <p className={styles.schema}>
+          <span itemProp="description">
+            <FormattedMessage id="description" />
+          </span>
+        </p>
       </div>
 
       <div>
-        <p>Copyright © Belgijski Ovčar 2015-{new Date().getFullYear()}</p>
+        <p>
+          Copyright © Belgijski Ovčar - <b itemProp="name">Od Slunja</b> 2015-{new Date().getFullYear()}
+        </p>
         <div className={styles.social}>
           <a href="https://www.facebook.com/nikola.paulic.520" target="_blank" rel="noopener noreferrer">
-            <Img fixed={facebook.childImageSharp.fixed} />
+            <Img fixed={facebook.childImageSharp.fixed} alt="facebook icon" />
           </a>
           <a href="https://www.youtube.com/channel/UCTvn3_T7YgR5Hna-vFtD4kw" rel="noopener noreferrer" target="_blank">
-            <Img fixed={youtube.childImageSharp.fixed} />
+            <Img fixed={youtube.childImageSharp.fixed} alt="youtube icon" />
           </a>
         </div>
       </div>

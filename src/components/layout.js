@@ -9,11 +9,12 @@ import Header from './header';
 import Footer from './footer';
 import SEO from './seo';
 
-const Layout = ({ children, intl }) => {
+const Layout = ({ children, intl, location }) => {
   const size = useWindowSize();
+  const pageName = intl.formatMessage({ id: location });
   return (
     <div className={styles.root}>
-      <SEO lang={intl.locale} />
+      <SEO lang={intl.locale} location={pageName} />
       <Header
         size={size}
         siteTitle={intl.formatMessage({ id: 'metadata_title' })}
@@ -26,6 +27,7 @@ const Layout = ({ children, intl }) => {
 };
 
 Layout.propTypes = {
+  location: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   intl: PropTypes.shape({
     locale: PropTypes.string,

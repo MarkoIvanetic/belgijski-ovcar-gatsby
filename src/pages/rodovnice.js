@@ -19,7 +19,7 @@ const Rodovnice = ({ data }) => {
   });
 
   return (
-    <Layout>
+    <Layout location="nav_3">
       <Gallery images={pedigreeImages} />;
     </Layout>
   );
