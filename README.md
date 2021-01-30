@@ -40,11 +40,6 @@ TBA
 
 ## TODO
 
-- change link color
-
-- check mobile nav animation
-- showFromRight - remove or use
-
 - make footer sticky
 - footer seo
 - responsive check
