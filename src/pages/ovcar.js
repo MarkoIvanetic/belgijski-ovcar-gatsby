@@ -12,7 +12,7 @@ import styles from '../styles/ovcar.module.scss';
 const Ovcar = ({ data }) => {
   const image = data.contentfulAsset;
   return (
-    <Layout>
+    <Layout location="nav_1">
       <div className={`${styles.imagesContainer} hidden-md`}>
         <Img fluid={image.fluid} alt={image.title} />
       </div>

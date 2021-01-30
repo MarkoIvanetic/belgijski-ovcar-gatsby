@@ -9,7 +9,7 @@ import styles from '../styles/404.module.scss';
 const NotFoundPage = ({ data }) => {
   const image = data.contentfulAsset;
   return (
-    <Layout>
+    <Layout location="404">
       <div className={styles.root}>
         <div>
           <Img className={styles.banner} fluid={image.fluid} alt={image.title} />

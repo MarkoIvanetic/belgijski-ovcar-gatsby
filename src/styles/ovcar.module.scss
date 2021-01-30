@@ -33,7 +33,7 @@
     margin-right: 10px;
   }
   p {
-    color: #888;
+    color: var(--text);
     margin-bottom: 2rem;
     @media only screen and (max-width: 720px) {
       margin-bottom: 1rem;

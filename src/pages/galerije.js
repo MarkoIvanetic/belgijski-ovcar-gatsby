@@ -20,7 +20,7 @@ export default function Galerije({ data }) {
   });
 
   return (
-    <Layout>
+    <Layout location="nav_2">
       <div>
         {galleries.map(({ id, title, thumbAlt, images }, i) => {
           return (

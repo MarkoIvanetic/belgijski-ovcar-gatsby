@@ -5,15 +5,17 @@ import { injectIntl } from 'gatsby-plugin-intl';
 import styles from './style/news.module.scss';
 import Gallery from './gallery/gallery';
 
-const SingleNews = ({ images, title, body }) => {
+const SingleNews = ({ images, date, title, body }) => {
+  console.log(images);
   return (
     <>
       <div className={styles.news}>
+        <span className={styles.date}>{`${date}`}</span>
         <h3>
-          <b>{title}</b>
+          <b>{`${title}`}</b>
         </h3>
-        <p>{body}</p>
-        <Gallery images={images} title={''} />
+        {body ? <p>{body}</p> : ''}
+        {images.length ? <Gallery images={images} title={''} /> : ''}
       </div>
     </>
   );
@@ -22,7 +24,30 @@ const SingleNews = ({ images, title, body }) => {
 SingleNews.propTypes = {
   images: PropTypes.array,
   title: PropTypes.string,
+  date: PropTypes.string,
   body: PropTypes.string,
+};
+
+const parseNews = (news, locale) => {
+  const id = news.id;
+  const slike = news.slike || [];
+
+  let title, body;
+
+  try {
+    title = news[`title_${locale}`];
+  } catch (error) {
+    title = '';
+    console.warn('Title missing from news:', news);
+  }
+
+  try {
+    body = news[`body_${locale}`][`body_${locale}`];
+  } catch (error) {
+    body = '';
+  }
+
+  return { id, slike, title, body };
 };
 
 const News = ({ children, intl }) => {
@@ -31,6 +56,7 @@ const News = ({ children, intl }) => {
       allContentfulObavijest {
         nodes {
           id
+          updatedAt(formatString: "DD/MM/yyyy")
           slike {
             thumb: fluid(maxWidth: 200, maxHeight: 200) {
               base64
@@ -69,11 +95,8 @@ const News = ({ children, intl }) => {
   return (
     <div className={`${styles.root} shadow-md callout-left`}>
       {news.map((singleNews) => {
-        const id = singleNews.id;
-        const slike = singleNews.slike;
-        const title = singleNews[`title_${intl.locale}`];
-        const body = singleNews[`body_${intl.locale}`][`body_${intl.locale}`];
-        return <SingleNews key={id} images={slike} title={title} body={body} />;
+        const { id, slike, title, body } = parseNews(singleNews, intl.locale);
+        return <SingleNews key={id} date={singleNews.updatedAt} images={slike} title={title} body={body} />;
       })}
     </div>
   );

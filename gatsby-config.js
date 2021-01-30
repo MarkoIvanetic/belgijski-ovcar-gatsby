@@ -31,22 +31,22 @@ const intl = {
     de: `Belgischen Schäferhunde`,
   },
   desc: {
-    hr: `Uzgoj, savjeti i dresura Belgijskih Ovčara Malinoa (Malinois). Trenirani pod vodstvom bivšeg zapovjednika voda zaštitno-tragačih pasa Nikole Pauliča`,
-    en: `Breeding, tips and training of Belgian Shepherds Malinois. Trained under the leadership of former platoon commander of protective-search dogs Nikola Paulič`,
-    de: `Zucht, Tipps und Training der Belgischen Schäferhunde Malinois. Ausbildung unter der Leitung des ehemaligen Zugführers der Schutzhunde Nikola Paulič`,
+    hr: `Uzgoj, savjeti i dresura Belgijskih Ovčara Malinoa (Malinois). Trenirani pod vodstvom bivšeg zapovjednika voda zaštitno-tragačih pasa Nikole Paulića`,
+    en: `Breeding, tips and training of Belgian Shepherds Malinois. Trained under the leadership of former platoon commander of protective-search dogs Nikola Paulić`,
+    de: `Zucht, Tipps und Training der Belgischen Schäferhunde Malinois. Ausbildung unter der Leitung des ehemaligen Zugführers der Schutzhunde Nikola Paulić`,
   },
 };
 
 module.exports = {
   siteMetadata: {
-    title_hr: intl.title.hr,
-    title_en: intl.title.en,
-    title_de: intl.title.de,
+    title_hr: intl.title_short.hr,
+    title_en: intl.title_short.en,
+    title_de: intl.title_short.de,
     description_hr: intl.desc.hr,
     description_en: intl.desc.en,
     description_de: intl.desc.de,
     author: `Marko Ivanetic`,
-    siteUrl: `https://objective-euclid-682845.netlify.app/`,
+    siteUrl: `https://www.belgijskiovcar.com/`,
     image: `/site/dogbanner.png`,
   },
   plugins: [
@@ -77,6 +77,12 @@ module.exports = {
         defaultLanguage: `hr`,
         redirect: true,
         redirectComponent: require.resolve(`./src/components/redirect.js`),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
       },
     },
     {

@@ -1,9 +1,5 @@
 .root {
-  // position: absolute;
-  // bottom: 0;
-  // right: 0;
   display: flex;
-  // letter-spacing: 0.5px;
   font-family: 'IBM Plex Sans', sans-serif;
   margin-bottom: 3rem;
 
@@ -11,19 +7,24 @@
     flex-direction: column;
     align-items: flex-start;
     & > div {
+      width: 100%;
       margin-bottom: 1rem;
       align-items: flex-start;
+      text-align: initial;
+    }
+  }
+
+  @media only screen and (min-width: 551px) {
+    & > div:first-of-type {
+      text-align: left;
+    }
+    & > div:last-of-type {
+      text-align: right;
     }
   }
 
   & > div {
     flex: 1;
-  }
-  & > div:first-of-type {
-    text-align: left;
-  }
-  & > div:last-of-type {
-    text-align: right;
   }
 
   p {
@@ -45,8 +46,13 @@
   }
 }
 
+.schema {
+  height: 0;
+  visibility: hidden;
+}
+
 .social {
   @media only screen and (max-width: 550px) {
-    text-align: left;
+    // text-align: left;
   }
 }
