@@ -89,7 +89,7 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: `Crimson Text`,
+              family: `Crimson Pro`,
               variants: [`400`],
               subsets: [`latin`],
             },
