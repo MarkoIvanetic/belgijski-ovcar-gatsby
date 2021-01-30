@@ -9,6 +9,7 @@
 import './src/styles/global.css';
 import './src/styles/gallery.scss';
 import './src/styles/media.scss';
+// import './src/styles/fonts.scss';
 
 // const addScript = (url) => {
 //   const script = document.createElement('script');

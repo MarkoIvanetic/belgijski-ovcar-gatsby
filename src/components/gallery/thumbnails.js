@@ -16,7 +16,7 @@ const ThumbGrid = ({ images, thumbSize, colWidth, gutter, imgClass, handleOpen }
             className={styles.imageWrap}
             style={wrapStyle}
             width={colWidth}
-            key={id}
+            key={`${id}-${thumbIndex}`}
             onClick={() => {
               handleOpen(thumbIndex);
             }}>
