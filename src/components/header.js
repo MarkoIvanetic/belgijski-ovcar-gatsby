@@ -79,7 +79,6 @@ const Header = ({ size, siteTitle, siteSubtitle }) => {
             </Link>
           </div>
 
-          {/* <Navigation mobile={true} listStyle={navStyle}> */}
           <Navigation mobile={true} className={navClass}>
             <Language />
           </Navigation>

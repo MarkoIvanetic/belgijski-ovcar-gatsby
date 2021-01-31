@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, Link } from 'gatsby-plugin-intl';
 import styles from './style/navigation.module.scss';
@@ -14,8 +14,12 @@ const ListLink = ({ to, children }) => {
 };
 
 export const Navigation = ({ children, mobile, className, listStyle }) => {
+  const navigationClass = useMemo(() => {
+    return `${className ? className : ''} ${mobile ? styles.mobileList : styles.list}`.trim();
+  }, [mobile, className]);
+
   return (
-    <ul role="navigation" className={`${className} ${mobile ? styles.mobileList : styles.list}`} style={listStyle}>
+    <ul role="navigation" className={navigationClass} style={listStyle}>
       {children && <li>{children}</li>}
       <ListLink to="/">
         <FormattedMessage id="nav_0" />
