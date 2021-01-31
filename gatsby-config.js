@@ -79,12 +79,12 @@ module.exports = {
         redirectComponent: require.resolve(`./src/components/redirect.js`),
       },
     },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-purgecss`,
+    //   options: {
+    //     printRejected: true,
+    //   },
+    // },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
