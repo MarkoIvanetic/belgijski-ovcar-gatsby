@@ -62,6 +62,7 @@ function SEO({ description, lang, meta, keywords, location }) {
           property: `og:type`,
           content: `website`,
         },
+        { name: 'google-site-verification', content: 'zGRRc9oZkruiMXXucRfA1PRAeHZlvip3CfcKWj5L9Lk' },
         {
           name: `twitter:card`,
           content: `summary`,

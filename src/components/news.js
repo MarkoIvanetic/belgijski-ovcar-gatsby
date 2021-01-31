@@ -6,7 +6,6 @@ import styles from './style/news.module.scss';
 import Gallery from './gallery/gallery';
 
 const SingleNews = ({ images, date, title, body }) => {
-  console.log(images);
   return (
     <>
       <div className={styles.news}>
