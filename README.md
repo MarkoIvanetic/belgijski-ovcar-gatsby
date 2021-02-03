@@ -27,7 +27,7 @@ The process is pretty straightforward. On you team's dashboard go to Sites and c
    3a) build command will default to `yarn build` (which actually calls `gatsby develop`) which is fine. See [common build configurations](https://docs.netlify.com/configure-builds/common-configurations/) if you are setting up a different architecture.
    3b) leave default publish directory
 
-## Setting up Contentful Webhook for CD
+## Setting up Contentful Webhook for CD 
 
 Once you've setup a static site that pulls in your content during the build process, you're ready to configure webhooks that will be triggered when you publish or unpublish content in your space.
 
