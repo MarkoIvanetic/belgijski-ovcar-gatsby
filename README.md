@@ -6,7 +6,7 @@ Modernizing the site
 
 ## Setting up Contentful API
 
-- From space dashboard go to Settings > API keys  
+- From space dashboard go to Settings > API keys
 - Click "Add API key"
 
 Generated info is mapped to .env:
