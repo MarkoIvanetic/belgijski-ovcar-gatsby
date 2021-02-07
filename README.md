@@ -42,7 +42,7 @@ Building a website with Gatsby/Netlify stack will help us with:
 
 Their free tier includes unlimited personal and commercial projects, HTTPS, continuous deployment from public or private repos, and more.
 
-And ofcourse:
+And of course:
 ### [React.js](https://reactjs.org/)
 ___
 ## Setup
