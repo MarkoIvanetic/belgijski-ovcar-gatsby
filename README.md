@@ -78,8 +78,8 @@ The process is pretty straightforward. On you team's dashboard go to Sites and c
 1. Choose a Git provider (GitHub)
 2. select repository. Here make sure the Netlify has a correct Repo access which can be configured by clicking **Configure the Netlify app on GitHub.** below
 3. Select a branch to deploy (master)
-   3a) Build command will default to `yarn build` (which actually calls `gatsby develop`) which is fine. See [common build configurations](https://docs.netlify.com/configure-builds/common-configurations/) if you are setting up a different architecture.
-   3b) Leave default publish directory
+   a) Build command will default to `yarn build` (which actually calls `gatsby develop`) which is fine. See [common build configurations](https://docs.netlify.com/configure-builds/common-configurations/) if you are setting up a different architecture.
+   b) Leave default publish directory
 
 ### Setting up Contentful Webhook for CD 
 
