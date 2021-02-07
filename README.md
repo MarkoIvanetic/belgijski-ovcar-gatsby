@@ -31,6 +31,16 @@ Building a website with Gatsby/Netlify stack will help us with:
 - Better security
 - Developer and User Experience
 
+Notable gatsby plugins used:
+| Plugin                         | Description                                                                                               |
+|--------------------------------|-----------------------------------------------------------------------------------------------------------|
+| gatsby-plugin-react-helmet     | React Helmet is a component which lets you control your document head using their React component.        |
+| gatsby-plugin-advanced-sitemap | Generates a single or multiple sitemaps with full XSL templates                                           |
+| gatsby-plugin-robots-txt       | Create robots.txt for your Gatsby site.                                                                   |
+| gatsby-plugin-offline          | Adds drop-in support for making a Gatsby site work offline and more resistant to bad network connections. |
+| gatsby-plugin-intl             | Support for multi lanugage websites                                                                       |
+| gatsby-transformer-sharp       | Processing images in a variety of ways including resizing, cropping, and creating responsive images.      |
+
 ### Netlify
 
 [Netlify](https://www.netlify.com/) is an excellent option for deploying Gatsby sites. Netlify is a unified platform that automates your code to create performant, easily maintainable sites and web apps. They provide 
