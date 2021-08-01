@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/abcaf831-1263-4763-b726-35074f3b5897/deploy-status)](https://app.netlify.com/sites/objective-euclid-682845/deploys)
 
-Modernizing a very old website using a stack that revolves around **Gatsby** and **React** and **Contentful** as headless CMS. 
+Modernizing a very old website using a stack that revolves around **Gatsby**, **React** and **Contentful** as headless CMS. 
 
 https://www.belgijskiovcar.com
 ___
