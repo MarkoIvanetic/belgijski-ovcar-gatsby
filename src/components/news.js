@@ -52,7 +52,7 @@ const parseNews = (news, locale) => {
 const News = ({ children, intl }) => {
   const data = useStaticQuery(graphql`
     {
-      allContentfulObavijest {
+      allContentfulObavijest(filter: { id: { nin: "24439f75-904c-5632-bd60-c354f2e28443" } }) {
         nodes {
           id
           updatedAt(formatString: "DD/MM/yyyy")
