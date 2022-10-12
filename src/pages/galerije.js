@@ -5,24 +5,43 @@ import get from 'lodash.get';
 
 import Layout from '../components/layout';
 import Gallery from '../components/gallery';
+import { useMemo } from 'react';
+import { injectIntl } from 'gatsby-plugin-intl';
 
-export default function Galerije({ data }) {
+const parseGallery = (gallery, locale) => {
+  let title;
+
+  try {
+    title = gallery[`title_${locale}`];
+  } catch (error) {
+    title = gallery.title || '';
+    console.warn('Title missing from gallery:', gallery);
+  }
+
+  return { ...gallery, title };
+};
+
+function Galerije({ data, intl }) {
   const galleries = get(data, 'allContentfulGallery.nodes').filter((gallery) => {
     if (!gallery.images?.length) {
-      console.warn(`Gallery ${gallery.title} has no images!`);
+      console.warn(`Gallery ${gallery.title_hr} has no images!`);
       return false;
     }
-    if (!gallery.title) {
-      console.warn(`Gallery ${gallery.title} is missing a title!`);
+    if (!gallery.title_hr) {
+      console.warn(`Gallery ${gallery.title_hr} is missing a title!`);
       return false;
     }
     return true;
   });
 
+  const formatedGalleries = useMemo(() => {
+    return galleries.map((gallery) => parseGallery(gallery, intl.locale));
+  }, [galleries, intl.locale]);
+
   return (
     <Layout location="nav_2">
       <div>
-        {galleries.map(({ id, title, thumbAlt, images }, i) => {
+        {formatedGalleries.map(({ id, title, thumbAlt, images }, i) => {
           return (
             <div key={id} className="callout-left">
               <Gallery images={images} title={title} />
@@ -36,7 +55,10 @@ export default function Galerije({ data }) {
 
 Galerije.propTypes = {
   data: PropTypes.object,
+  intl: PropTypes.object,
 };
+
+export default injectIntl(Galerije);
 
 export const query = graphql`
   {
@@ -61,7 +83,9 @@ export const query = graphql`
           caption: title
         }
         id
-        title
+        title_en
+        title_de
+        title_hr
       }
     }
   }
