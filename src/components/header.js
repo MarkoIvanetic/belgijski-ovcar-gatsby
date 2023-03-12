@@ -1,13 +1,13 @@
-import React, { useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby-plugin-intl';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import styles from './style/header.module.scss';
 
 import Language from './language';
 
-import { Navigation } from './navigation';
-import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import { Navigation } from './navigation';
 
 const MenuIcon = ({ onToggleMenu }) => (
   <div className={styles.menuIcon} onClick={onToggleMenu}>
